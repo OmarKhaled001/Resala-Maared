@@ -218,7 +218,7 @@ class EventResource extends Resource
                 ->preload()
                 ->columnSpan([
                     'sm' => 1,
-                    'md' => 1,
+                    'md' => 2,
                     'xl' => 2,
                 ]),
             
@@ -232,7 +232,7 @@ class EventResource extends Resource
             Textarea::make('notes')
                 ->label('الملاحظات') ->columnSpan([
                     'sm' => 1,
-                    'md' => 1,
+                    'md' => 3,
                     'xl' => 3,
                 ]),
 
@@ -244,7 +244,7 @@ class EventResource extends Resource
                 ->downloadable()
                 ->columnSpan([
                     'sm' => 1,
-                    'md' => 1,
+                    'md' => 3,
                     'xl' => 3,
                 ]),
             ])
