@@ -99,7 +99,7 @@ class EventResource extends Resource
                         ->options([
                             'الاحداث الاوفلاين' => [
                                 'اجتماع اوفلاين' => 'اجتماع اوفلاين',
-                                'معرض مبلابس'  => 'معرض مبلابس',
+                                'معرض ملابس'  => 'معرض ملابس',
                                 'قافلة اطعام' => 'قافلة اطعام',
                                 'قافلة سوق' => 'قافلة سوق',
                                 'حفلة ابطال تحدي' => 'حفلة ابطال تحدي',
@@ -112,7 +112,6 @@ class EventResource extends Resource
                                 'ميديا' => 'ميديا',
                                 'اتصالات' => 'اتصالات',
                                 'اداريات' => 'اداريات',
-                                'اجتماع اون لاين' => 'اجتماع اون لاين',
                                 'اجتماع اون لاين' => 'اجتماع اون لاين',
                             ],
                             'اخري'    => 'اخري',
@@ -220,20 +219,14 @@ class EventResource extends Resource
                 ->label('أسم السائق')
                 ->placeholder('اختر اسم السائق')
                 ->searchable(['name', 'phone'])
-                ->preload()
-            ->columnSpan(1),
+                ->preload(),
             
             TimePicker::make('arrived_at')
-            ->label('وقت الحضور')
-
-            ->columnSpan(1),
+            ->label('وقت الحضور'),
             TimePicker::make('move_at')
-            ->label('وقت التحرك')
-
-            ->columnSpan(1),
+            ->label('وقت التحرك'),
             TimePicker::make('back_at')
-            ->label('وقت العودة')
-            ->columnSpan(1),
+            ->label('وقت العودة'),
 
             Textarea::make('notes')
                 ->label('الملاحظات')
