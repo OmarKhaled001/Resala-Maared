@@ -21,8 +21,8 @@ use App\Http\Controllers\VolunteerController;
 |
 */
 
+Route::get('/', function () {return Redirect::to(Request::url().'/admin');})->name('home');
 Route::middleware('auth')->group(function () {
-    Route::get('/', function () {return Redirect::to(Request::url().'/admin');})->name('home');
 
     // //Volunteers
     // Route::get('/volunteer/all' ,[VolunteerController::class,'allVolunteers'])->name('volunteers');
