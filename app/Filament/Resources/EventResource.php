@@ -193,33 +193,34 @@ class EventResource extends Resource
                 ->label('أسم المكان')
                 ->placeholder('اختر اسم المكان')
                 ->searchable(['name', 'administrator_name'])
-                ->preload()
-            ->columnSpan(2),
+                ->preload(),
 
             Select::make('driver_id')
                 ->createOptionForm([
                     TextInput::make('name')
                         ->label('الاسم')
                         ->placeholder('ادخل اسم السائق')
-                        ->required()
-                        ->columnSpan(1),
+                        ->required(),
                         TextInput::make('phone')
                         ->label('رقم الهاتف')
                         ->placeholder('ادخل رقم السائق')
-                        ->required()
-                        ->columnSpan(1),
+                        ->required(),
                         TextInput::make('national')
                         ->label('رقم الرخصة')
                         ->placeholder('ادخل رقم الرخصة')
-                        ->required()
-                        ->columnSpan(1),
+                        ->required(),
                         
                 ])
                 ->relationship('driver','name')
                 ->label('أسم السائق')
                 ->placeholder('اختر اسم السائق')
                 ->searchable(['name', 'phone'])
-                ->preload(),
+                ->preload()
+                ->columnSpan([
+                    'sm' => 1,
+                    'md' => 1,
+                    'xl' => 2,
+                ]),
             
             TimePicker::make('arrived_at')
             ->label('وقت الحضور'),
@@ -229,8 +230,11 @@ class EventResource extends Resource
             ->label('وقت العودة'),
 
             Textarea::make('notes')
-                ->label('الملاحظات')
-            ->columnSpan(3),
+                ->label('الملاحظات') ->columnSpan([
+                    'sm' => 1,
+                    'md' => 1,
+                    'xl' => 3,
+                ]),
 
             SpatieMediaLibraryFileUpload::make('event_reseat')
                 ->collection('event_reseats')
@@ -238,7 +242,11 @@ class EventResource extends Resource
                 ->downloadable()
                 ->label('صورة الايصال')
                 ->downloadable()
-            ->columnSpan(3),
+                ->columnSpan([
+                    'sm' => 1,
+                    'md' => 1,
+                    'xl' => 3,
+                ]),
             ])
             ->columns([
                 'sm' => 1,
