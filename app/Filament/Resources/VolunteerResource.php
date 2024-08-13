@@ -143,6 +143,13 @@ class VolunteerResource extends Resource
                 ])->label('التصنيف')
                 ->placeholder('اختر التصنيف')
                 ->multiple(),
+                SelectFilter::make('gendur')
+                ->options([
+                    '1' => 'ذكر',
+                    '2' => 'انثي',
+                
+                ])->label('النوع')
+                ->placeholder('اختر النوع'),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
