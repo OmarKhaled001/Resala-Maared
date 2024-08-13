@@ -79,6 +79,12 @@
             "php-http/discovery": true
         }
     },
+    "repositories": [
+        {
+            "url": "https://github.com/OmarKhaled001/resala-maared.git",
+            "type": "git"
+        }
+    ],
     "minimum-stability": "stable",
     "prefer-stable": true
 }
