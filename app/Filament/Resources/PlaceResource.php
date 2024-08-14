@@ -38,28 +38,24 @@ class PlaceResource extends Resource
                 TextInput::make('name')
                 ->label('اسم المكان')
                 ->placeholder('ادخل اسم المكان')
-                ->required()
-                ->columnSpan(1),
+                ->required(),
                 TextInput::make('area')
                 ->label('اسم القرية')
                 ->placeholder('ادخل اسم القرية')
-                ->required()
-                ->columnSpan(1),
+                ->required(),
                 TextInput::make('administrator_name')
                 ->label('اسم الدليل')
                 ->placeholder('ادخل اسم الدليل')
-                ->required()
-                ->columnSpan(1),
+                ->required(),
                 TextInput::make('administrator_phone')
                 ->label('رقم الهاتف')
                 ->placeholder('ادخل رقم السائق')
-                ->required()
-                ->columnSpan(1),
+                ->required(),
                 Checkbox::make('is_association')
-                ->label('جمعية شرعية')
-                ->columnSpan(1),
+                ->label('جمعية شرعية'),
                 Rating::make('rating')
                 ->label('التقيم')
+                ->default(1)
                 ->stars(10)
                 ->columnSpan(1),
                 Textarea::make('location')
@@ -74,7 +70,11 @@ class PlaceResource extends Resource
                 ->downloadable()
                 ->label('صور المكان')
                 ->downloadable()
-                ->columnSpan(2), 
+                ->columnSpan([
+                    'sm' => 1,
+                    'md' => 2,
+                    'xl' => 2,
+                ]), 
             ])
             
             ->columns([
