@@ -16,12 +16,10 @@ class EventController extends Controller
         
         $currentMonth = Carbon::now()->month;
         $events = Event::orderBy('date', 'asc')->whereMonth('date', $currentMonth)->get();
-        $volunteers = Volunteer::all();
 
         
         return view('events.all',[
             'events' => $events,
-            'volunteers' => $volunteers
         ]);
     }
 
