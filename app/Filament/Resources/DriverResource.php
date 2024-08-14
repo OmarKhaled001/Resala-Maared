@@ -14,10 +14,11 @@ use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
 use Mokhosh\FilamentRating\Components\Rating;
 use App\Filament\Resources\DriverResource\Pages;
+use Mokhosh\FilamentRating\Columns\RatingColumn;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 use App\Filament\Resources\DriverResource\RelationManagers;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
-use Mokhosh\FilamentRating\Columns\RatingColumn;
 
 class DriverResource extends Resource
 {
@@ -97,6 +98,8 @@ class DriverResource extends Resource
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
+                ExportBulkAction::make(),
+
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
