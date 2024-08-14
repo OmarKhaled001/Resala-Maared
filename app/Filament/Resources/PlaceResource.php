@@ -117,7 +117,11 @@ class PlaceResource extends Resource
                 TextColumn::make('location')
                 ->label('العنوان')
                 ->searchable()
-                ->url(fn (Place $record): string => ['location' => $record]),
+                ->url(
+                    function ($record) {
+                        return $record->location;
+                    }
+                ),
                 TextColumn::make('rating')
                 ->label('التقيم')
                 ->suffix('/10'),
