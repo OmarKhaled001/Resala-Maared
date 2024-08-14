@@ -81,6 +81,10 @@ class PlaceResource extends Resource
                 ->downloadable()
                 ->columnSpan(2),
 
+            ])
+            
+            ->columns([
+                'xl' => 4,
             ]);
     }
 
