@@ -39,28 +39,52 @@ class PlaceResource extends Resource
                 ->label('اسم المكان')
                 ->placeholder('ادخل اسم المكان')
                 ->required()
-                ->columnSpan(1),
+                ->columnSpan([
+                    'sm' => 1,
+                    'md' => 2,
+                    'xl' => 2,
+                ]),
                 TextInput::make('area')
                 ->label('اسم القرية')
                 ->placeholder('ادخل اسم القرية')
                 ->required()
-                ->columnSpan(1),
+                ->columnSpan([
+                    'sm' => 1,
+                    'md' => 2,
+                    'xl' => 2,
+                ]),
                 TextInput::make('administrator_name')
                 ->label('اسم الدليل')
                 ->placeholder('ادخل اسم الدليل')
                 ->required()
-                ->columnSpan(1),
+                ->columnSpan([
+                    'sm' => 1,
+                    'md' => 2,
+                    'xl' => 2,
+                ]),
                 TextInput::make('administrator_phone')
                 ->label('رقم الهاتف')
                 ->placeholder('ادخل رقم السائق')
                 ->required()
-                ->columnSpan(1),
+                ->columnSpan([
+                    'sm' => 1,
+                    'md' => 2,
+                    'xl' => 2,
+                ]),
                 Checkbox::make('is_association')
                 ->label('جمعية شرعية')
-                ->columnSpan(1),
+                ->columnSpan([
+                    'sm' => 1,
+                    'md' => 2,
+                    'xl' => 2,
+                ]),
                 Rating::make('rating')
                 ->label('التقيم')
-                ->default(1)
+                ->default([
+                    'sm' => 1,
+                    'md' => 2,
+                    'xl' => 2,
+                ])
                 ->stars(10)
                 ->columnSpan(1),
                 Textarea::make('location')
