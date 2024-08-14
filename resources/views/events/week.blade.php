@@ -27,6 +27,7 @@
                                             <th>الأسماء</th>
                                             <th>الأرقام</th>
                                             <th>المشاركة</th>
+                                            <th>الصورة</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -37,12 +38,13 @@
                                                 
                                                 
                                                 <td rowspan="{{count($event->volunteers)+1}}">{{$event->type}}</td>
-                                                    @foreach($event->volunteers as $volunteer)
-                                                    <tr>
-                                                        <td>{{$volunteer->name}}</td>
-                                                        <td>{{$volunteer->phone}}</td>
-                                                    </tr>
-                                                    @endforeach
+                                                @foreach($event->volunteers as $volunteer)
+                                                <tr>
+                                                    <td>{{$volunteer->name}}</td>
+                                                    <td>{{$volunteer->phone}}</td>
+                                                </tr>
+                                                @endforeach
+                                                <td rowspan="{{count($event->volunteers)+1}}">{{$event->type}}</td>
                                                 
                                             </tr>
                                             

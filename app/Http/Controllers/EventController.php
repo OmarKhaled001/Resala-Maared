@@ -24,7 +24,7 @@ class EventController extends Controller
 
 
         
-        return view('events.week1',[
+        return view('events.week',[
             'events' => $events,
         ]);
     }
@@ -41,7 +41,7 @@ class EventController extends Controller
 
 
         
-        return view('events.week1',[
+        return view('events.week',[
             'events' => $events,
         ]);
     }
@@ -58,7 +58,7 @@ class EventController extends Controller
 
 
         
-        return view('events.week1',[
+        return view('events.week',[
             'events' => $events,
         ]);
     }
@@ -75,7 +75,7 @@ class EventController extends Controller
 
 
         
-        return view('events.week1',[
+        return view('events.week',[
             'events' => $events,
         ]);
     }
@@ -92,7 +92,7 @@ class EventController extends Controller
 
 
         
-        return view('events.week1',[
+        return view('events.week',[
             'events' => $events,
         ]);
     }
