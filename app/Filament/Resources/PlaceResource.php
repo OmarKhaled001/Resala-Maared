@@ -79,7 +79,10 @@ class PlaceResource extends Resource
                 ->downloadable()
                 ->label('صور المكان')
                 ->downloadable()
-                ->columnSpan(2),
+                ->columnSpan([
+                    'sm' => 2,
+                    'xl' => 4,
+                ]),
 
             ])
             
