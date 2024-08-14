@@ -103,7 +103,9 @@ class EventController extends Controller
         $currentYear = Carbon::now()->year;
 
 
-        $events = Event::whereBetween('date', $currentMonth)->orderBy('date', 'asc')->get();
+        $events = Event::where('date', $currentMonth)
+        ->where('type','like' , '%اجتماع%')
+        ->orderBy('date', 'asc')->get();
 
 
         
