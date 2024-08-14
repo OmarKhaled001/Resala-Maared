@@ -37,8 +37,28 @@
                     </li>
                     <li class="menu-title"><span data-key="t-menu">Settings</span></li>
                     <li class="nav-item">
-                        <a class="nav-link menu-link {{Request::url() == route('events')? 'active': ''}}" href="{{route("events")}}">
-                            <i class="ph-address-book"></i> <span data-key="t-pages">الاحداث</span>
+                        <a class="nav-link menu-link {{Request::url() == route('events.week1')? 'active': ''}}" href="{{route("events.week1")}}">
+                            <i class="ph-address-book"></i> <span data-key="t-pages">الاسبوع الاول</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{Request::url() == route('events.week2')? 'active': ''}}" href="{{route("events.week2")}}">
+                            <i class="ph-address-book"></i> <span data-key="t-pages">الاسبوع الثاني</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{Request::url() == route('events.week3')? 'active': ''}}" href="{{route("events.week3")}}">
+                            <i class="ph-address-book"></i> <span data-key="t-pages">الاسبوع الثالث</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{Request::url() == route('events.week4')? 'active': ''}}" href="{{route("events.week4")}}">
+                            <i class="ph-address-book"></i> <span data-key="t-pages">الاسبوع الرابع</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{Request::url() == route('events.week5')? 'active': ''}}" href="{{route("events.week5")}}">
+                            <i class="ph-address-book"></i> <span data-key="t-pages">الاسبوع الخامس</span>
                         </a>
                     </li>
                     
