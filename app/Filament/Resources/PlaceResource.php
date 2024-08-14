@@ -38,21 +38,26 @@ class PlaceResource extends Resource
                 TextInput::make('name')
                 ->label('اسم المكان')
                 ->placeholder('ادخل اسم المكان')
-                ->required(),
+                ->required()
+                ->columnSpan(1),
                 TextInput::make('area')
                 ->label('اسم القرية')
                 ->placeholder('ادخل اسم القرية')
-                ->required(),
+                ->required()
+                ->columnSpan(1),
                 TextInput::make('administrator_name')
                 ->label('اسم الدليل')
                 ->placeholder('ادخل اسم الدليل')
-                ->required(),
+                ->required()
+                ->columnSpan(1),
                 TextInput::make('administrator_phone')
                 ->label('رقم الهاتف')
                 ->placeholder('ادخل رقم السائق')
-                ->required(),
+                ->required()
+                ->columnSpan(1),
                 Checkbox::make('is_association')
-                ->label('جمعية شرعية'),
+                ->label('جمعية شرعية')
+                ->columnSpan(1),
                 Rating::make('rating')
                 ->label('التقيم')
                 ->default(1)
