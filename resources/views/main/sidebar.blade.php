@@ -29,6 +29,27 @@
                 <div id="two-column-menu">
                 </div>
                 <ul class="navbar-nav" id="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link menu-link collapsed" href="#sidebarLayouts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLayouts">
+                            <i class="ph-layout"></i><span>@lang('translation.layouts')</span> <span class="badge badge-pill bg-danger" data-key="t-hot">Hot</span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="sidebarLayouts">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="layouts-horizontal" target="_blank" class="nav-link" data-key="t-horizontal">@lang('translation.horizontal')</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="layouts-detached" target="_blank" class="nav-link" data-key="t-detached">@lang('translation.detached')</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="layouts-two-column" target="_blank" class="nav-link" data-key="t-two-column">@lang('translation.two-column')</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="layouts-vertical-hovered" target="_blank" class="nav-link" data-key="t-hovered">@lang('translation.hovered')</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link menu-link {{Request::url() == route('home')? 'active': ''}}" href="{{route('home')}}">
