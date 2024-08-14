@@ -42,6 +42,7 @@ class RatingcResource extends Resource
                         ->preload()
                         ->searchable(['name'])
                         ->columnSpan(1)
+                        ->required()
                         ->placeholder('اختر اللجنة'),
                         DatePicker::make('date')
                         ->label('تاريخ ')
