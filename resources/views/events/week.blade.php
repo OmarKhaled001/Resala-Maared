@@ -38,13 +38,13 @@
                                                 
                                                 
                                                 <td rowspan="{{count($event->volunteers)+1}}">{{$event->type}}</td>
+                                                <td rowspan="{{count($event->volunteers)+1}}">{{$event->type}}</td>
                                                 @foreach($event->volunteers as $volunteer)
                                                 <tr>
                                                     <td>{{$volunteer->name}}</td>
                                                     <td>{{$volunteer->phone}}</td>
                                                 </tr>
                                                 @endforeach
-                                                <td rowspan="{{count($event->volunteers)+1}}">{{$event->type}}</td>
                                                 
                                             </tr>
                                             
