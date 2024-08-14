@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('rating');
-            $table->string('Administrator_name');
-            $table->string('Administrator_phone');
+            $table->string('administrator_name');
+            $table->string('administrator_phone');
             $table->string('notes')->nullable();
             $table->string('area');
             $table->string('location')->nullable();
