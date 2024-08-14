@@ -29,8 +29,11 @@
                 <div id="two-column-menu">
                 </div>
                 <ul class="navbar-nav" id="navbar-nav">
+                   
+
                     <li class="nav-item">
-                        <a href="#sidebarInstructors" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarInstructors" data-key="t-instructors"> المشاركات</a>
+                        <i class="ph ph-calendar-check"></i>
+                        <a href="#" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarInstructors" data-key="t-instructors"> المشاركات</a>
                         <div class="collapse menu-dropdown" id="sidebarInstructors">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
@@ -51,38 +54,6 @@
                                
                             </ul>
                         </div>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link menu-link {{Request::url() == route('home')? 'active': ''}}" href="{{route('home')}}">
-                            <i class="ph ph-house"></i><span data-key="t-index">الرئيسية</span>
-                        </a>
-                    </li>
-                    <li class="menu-title"><span data-key="t-menu">Settings</span></li>
-                    <li class="nav-item">
-                        <a class="nav-link menu-link {{Request::url() == route('events.week1')? 'active': ''}}" href="{{route("events.week1")}}">
-                            <i class="ph-address-book"></i> <span data-key="t-pages">الاسبوع الاول</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link menu-link {{Request::url() == route('events.week2')? 'active': ''}}" href="{{route("events.week2")}}">
-                            <i class="ph-address-book"></i> <span data-key="t-pages">الاسبوع الثاني</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link menu-link {{Request::url() == route('events.week3')? 'active': ''}}" href="{{route("events.week3")}}">
-                            <i class="ph-address-book"></i> <span data-key="t-pages">الاسبوع الثالث</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link menu-link {{Request::url() == route('events.week4')? 'active': ''}}" href="{{route("events.week4")}}">
-                            <i class="ph-address-book"></i> <span data-key="t-pages">الاسبوع الرابع</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link menu-link {{Request::url() == route('events.week5')? 'active': ''}}" href="{{route("events.week5")}}">
-                            <i class="ph-address-book"></i> <span data-key="t-pages">الاسبوع الخامس</span>
-                        </a>
                     </li>
                     
                 </ul>
