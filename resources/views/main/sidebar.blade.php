@@ -73,7 +73,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link menu-link {{Request::url() == route('events.meeting')? 'active': ''}}" href="{{route("events.meeting")}}">الاجتماعات</a>
                                 </li>
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a class="nav-link menu-link {{Request::url() == route('events.maared')? 'active': ''}}" href="{{route("events.maared")}}">المعارض</a>
                                 </li>
                                 <li class="nav-item">
@@ -84,7 +84,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link menu-link {{Request::url() == route('events.markting')? 'active': ''}}" href="{{route("events.markting")}}">دعاية</a>
-                                </li>
+                                </li> --}}
                                
                             </ul>
                         </div>
