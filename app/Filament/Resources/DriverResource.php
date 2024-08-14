@@ -51,18 +51,20 @@ class DriverResource extends Resource
 
                 Textarea::make('notes')
                 ->label('الملاحظات')
-                ->columnSpan(6),
+                ->columnSpan([
+                    'xl' => 6,
+                ]),
                 SpatieMediaLibraryFileUpload::make('driver')
                 ->collection('drivers')
                 ->multiple()
                 ->downloadable()
                 ->label('صورة الرخصة او الغرامات')
                 ->downloadable()
-                ->columnSpan(6),
+                ->columnSpan([
+                    'xl' => 6,
+                ]),
             ])
             ->columns([
-                
-                'xs' => 2,
                 'xl' => 6,
             ]);
     }
