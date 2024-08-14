@@ -129,6 +129,7 @@ class PlaceResource extends Resource
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
+                ExportBulkAction::make(),
 
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
@@ -137,11 +138,10 @@ class PlaceResource extends Resource
             ]);
     }
 
-    public static function getHeader(): array
+    public static function getRelations(): array
     {
         return [
-            ExportBulkAction::make(),
-
+            //
         ];
     }
 
