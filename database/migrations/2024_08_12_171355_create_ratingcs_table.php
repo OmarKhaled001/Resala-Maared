@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('commitment')->nullable();
             $table->integer('mixing')->nullable();
             $table->integer('plan')->nullable();
+            $table->boolean('warning')->nullable();
             $table->string('ranking')->nullable();
             $table->string('points')->nullable();
             $table->string('notes')->nullable();

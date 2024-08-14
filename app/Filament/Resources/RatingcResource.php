@@ -13,6 +13,7 @@ use Filament\Forms\Components\Checkbox;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\RichEditor;
 use Illuminate\Database\Eloquent\Builder;
 use Mokhosh\FilamentRating\Components\Rating;
 use App\Filament\Resources\ReatingcResource\Pages;
@@ -76,6 +77,28 @@ class RatingcResource extends Resource
                         Checkbox::make('plan')
                         ->label('أرسال الخطة')
                         ->columnSpan(1),
+                        Checkbox::make('warning')
+                        ->label('انذار')
+                        ->columnSpan(1),
+                        RichEditor::make('notes')
+                        ->toolbarButtons([
+                            'attachFiles',
+                            'blockquote',
+                            'bold',
+                            'bulletList',
+                            'codeBlock',
+                            'h2',
+                            'h3',
+                            'italic',
+                            'link',
+                            'orderedList',
+                            'redo',
+                            'strike',
+                            'underline',
+                            'undo',
+                        ])
+                        ->label('التقرير')
+                        ->columnSpan(2),
                       
             ]);
     }
