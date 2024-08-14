@@ -132,7 +132,6 @@ class PlaceResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-                ExportBulkAction::make()
 
             ]);
     }
@@ -152,4 +151,11 @@ class PlaceResource extends Resource
             'edit' => Pages\EditPlace::route('/{record}/edit'),
         ];
     }
+
+    public function getTableBulkActions()
+{
+    return  [
+        ExportBulkAction::make()
+    ];
+}
 }
