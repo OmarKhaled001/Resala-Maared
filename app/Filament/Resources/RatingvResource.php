@@ -16,6 +16,7 @@ use Filament\Forms\Components\Checkbox;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\RichEditor;
 use Illuminate\Database\Eloquent\Builder;
 use Mokhosh\FilamentRating\Components\Rating;
 use App\Filament\Resources\ReatingvResource\Pages;
@@ -74,10 +75,27 @@ class RatingvResource extends Resource
                         Checkbox::make('famliyday')
                         ->label('اليوم العائلي')
                         ->columnSpan(1),
-                        Checkbox::make('ma3red')
-                        ->label('المعرض')
+                        RichEditor::make('notes')
+                        ->toolbarButtons([
+                            'attachFiles',
+                            'blockquote',
+                            'bold',
+                            'bulletList',
+                            'codeBlock',
+                            'h2',
+                            'h3',
+                            'italic',
+                            'link',
+                            'orderedList',
+                            'redo',
+                            'strike',
+                            'underline',
+                            'undo',
+                        ])
+                        ->label('التقرير ')
+                        ->columnSpan(2),
 
-                        ->columnSpan(1),
+
                        
 
 
@@ -110,21 +128,8 @@ class RatingvResource extends Resource
                     'خارج المتابعة' => 'danger',
                 })
                 ->sortable(),
-                TextColumn::make('total')
-                    ->label('اجمالي التقيم')
-                    ->getStateUsing(function ($record) {
-                        // Replace col1, col2, col3 with your actual column names
-                        $famliyday = 0;  
-
-                        if($record->famliyday == 1){
-                            $famliyday = $record->famliyday;
-                            $famliyday = 100;  
-
-                        };
-                        return $record->commitment + $record->following + $record->mixing+ $record->head_rating +$famliyday
-                        ;
-                })
-                ,
+                
+              
            
             ])
             ->filters([

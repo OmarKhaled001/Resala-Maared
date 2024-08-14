@@ -23,7 +23,6 @@ return new class extends Migration
             $table->integer('following')->nullable();
             $table->integer('mixing')->nullable();
             $table->integer('head_rating')->nullable();
-            $table->boolean('ma3red')->nullable();
             $table->boolean('famliyday')->nullable();
             $table->string('notes')->nullable();
             $table->timestamps();
