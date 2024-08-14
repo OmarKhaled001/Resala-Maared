@@ -109,7 +109,7 @@ class PlaceResource extends Resource
             ->columns([
                 'sm' => 1,
                 'md' => 1,
-                'xl' => 2,
+                'xl' => 1,
             ]);
     }
 
