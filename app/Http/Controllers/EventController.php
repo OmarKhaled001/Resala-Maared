@@ -96,6 +96,21 @@ class EventController extends Controller
             'events' => $events,
         ]);
     }
+    public function eventsMeeting (Request $request)
+    {
+        
+        $currentMonth = Carbon::now()->month;
+        $currentYear = Carbon::now()->year;
+
+
+        $events = Event::whereBetween('date', $currentMonth)->orderBy('date', 'asc')->get();
+
+
+        
+        return view('events.meeting',[
+            'events' => $events,
+        ]);
+    }
 
 
 

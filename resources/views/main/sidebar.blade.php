@@ -36,7 +36,7 @@
                             <i class="ph ph-house"></i><span data-key="t-index">الرئيسية</span>
                         </a>
                     </li>
-                    <li class="menu-title"><span data-key="t-menu">Settings</span></li>
+                    <li class="menu-title"><span data-key="t-menu">التقارير</span></li>
                     <li class="nav-item">
                         
                         <a href="#week" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarInstructors" data-key="t-instructors"><i class="ph ph-calendar-check"></i>
@@ -58,6 +58,32 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link menu-link {{Request::url() == route('events.week5')? 'active': ''}}" href="{{route("events.week5")}}">الاسبوع الخامس</a>
+                                </li>
+                               
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        
+                        <a href="#week" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarInstructors" data-key="t-instructors"><i class="ph ph-calendar-check"></i>
+
+                            الاحداث</a>
+                        <div class="collapse menu-dropdown" id="week">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link menu-link {{Request::url() == route('events.meeting')? 'active': ''}}" href="{{route("events.meeting")}}">الاجتماعات</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link menu-link {{Request::url() == route('events.maared')? 'active': ''}}" href="{{route("events.maared")}}">المعارض</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link menu-link {{Request::url() == route('events.etaam')? 'active': ''}}" href="{{route("events.etaam")}}">الاطعام</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link menu-link {{Request::url() == route('events.tahady')? 'active': ''}}" href="{{route("events.tahady")}}">ابطال تحدي</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link menu-link {{Request::url() == route('events.markting')? 'active': ''}}" href="{{route("events.markting")}}">دعاية</a>
                                 </li>
                                
                             </ul>

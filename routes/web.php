@@ -32,6 +32,9 @@ Route::group(['middleware' => ['admin','auth']],function () {
     Route::get('master/events/week3' ,[EventController::class,'eventsWeek3'])->name('events.week3');
     Route::get('master/events/week4' ,[EventController::class,'eventsWeek4'])->name('events.week4');
     Route::get('master/events/week5' ,[EventController::class,'eventsWeek5'])->name('events.week5');
+    Route::get('master/events/meetings' ,[EventController::class,'eventsMeeting'])->name('events.meetings');
+    Route::get('master/events/maared' ,[EventController::class,'eventsMaared'])->name('events.maared');
+    Route::get('master/events/etaam' ,[EventController::class,'eventsEtaam'])->name('events.etaam');
 });
 
 
