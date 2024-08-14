@@ -5,11 +5,9 @@ namespace App\Filament\Resources;
 use Filament\Forms;
 use Filament\Tables;
 use App\Models\Place;
-use Filament\Forms\Set;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
-use Dotswan\MapPicker\Fields\Map;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\Textarea;
@@ -69,39 +67,8 @@ class PlaceResource extends Resource
                 ->default(1)
                 ->stars(10)
                 ->columnSpan(2),
-                Map::make('location')
-                    ->label('Location')
-                    ->columnSpanFull()
-                    ->default([
-                        'lat' => 40.4168,
-                        'lng' => -3.7038
-                    ])
-                    ->afterStateUpdated(function (Set $set, ?array $state): void {
-                        $set('latitude', $state['lat']);
-                        $set('longitude', $state['lng']);
-                    })
-                    ->afterStateHydrated(function ($state, $record, Set $set): void {
-                        $set('location', ['lat' => $record->latitude, 'lng' => $record->longitude]);
-                    })
-                    ->extraStyles([
-                        'min-height: 150vh',
-                        'border-radius: 50px'
-                    ])
-                    ->liveLocation()
-                    ->showMarker()
-                    ->markerColor("#22c55eff")
-                    ->showFullscreenControl()
-                    ->showZoomControl()
-                    ->draggable()
-                    ->tilesUrl("https://tile.openstreetmap.de/{z}/{x}/{y}.png")
-                    ->zoom(15)
-                    ->detectRetina()
-                    ->showMyLocationButton()
-                    ->extraTileControl([])
-                    ->extraControl([
-                        'zoomDelta'           => 1,
-                        'zoomSnap'            => 2,
-                    ])
+                
+                Textarea::make('location')
                 ->label('اللوكيشن')
                 ->columnSpan(2),  
                 Textarea::make('notes')
