@@ -36,34 +36,33 @@ class DriverResource extends Resource
                 ->label('الاسم')
                 ->placeholder('ادخل اسم السائق')
                 ->required()
-                ->columnSpan(1),
+                ->columnSpan(2),
                 TextInput::make('phone')
                 ->label('رقم الهاتف')
                 ->placeholder('ادخل رقم السائق')
                 ->required()
-                ->columnSpan(1),
+                ->columnSpan(2),
                 TextInput::make('national')
                 ->label('رقم الرخصة')
                 ->placeholder('ادخل رقم الرخصة')
                 ->required()
-                ->columnSpan(1),
+                ->columnSpan(2),
                 Rating::make('rating')->stars(5)->label('ألتقيم'),
 
                 Textarea::make('notes')
                 ->label('الملاحظات')
-                ->columnSpan(3),
+                ->columnSpan(6),
                 SpatieMediaLibraryFileUpload::make('driver')
                 ->collection('drivers')
                 ->multiple()
                 ->downloadable()
                 ->label('صورة الرخصة او الغرامات')
                 ->downloadable()
-                ->columnSpan(3),
+                ->columnSpan(6),
             ])
             ->columns([
-                'sm' => 1,
-                'md' => 1,
-                'xl' => 3,
+                
+                'xl' => 6,
             ]);
     }
 
