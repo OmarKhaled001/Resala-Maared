@@ -44,7 +44,7 @@
                                                    
                                                    @if($event->getMedia('event_screns')->first() !== null)
                                                        {{$event->getMedia('event_screns')->first()->getUrl()}}
-                                                   @else
+                                                   @endif
                                                    ">
                                                 </td>
                                                 @foreach($event->volunteers as $volunteer)
