@@ -75,6 +75,9 @@ class RatingvResource extends Resource
                         Checkbox::make('famliyday')
                         ->label('اليوم العائلي')
                         ->columnSpan(1),
+                        Checkbox::make('warning')
+                        ->label('انذار')
+                        ->columnSpan(1),
                         RichEditor::make('notes')
                         ->toolbarButtons([
                             'attachFiles',
@@ -92,7 +95,7 @@ class RatingvResource extends Resource
                             'underline',
                             'undo',
                         ])
-                        ->label('التقرير ')
+                        ->label('التقرير')
                         ->columnSpan(2),
 
 

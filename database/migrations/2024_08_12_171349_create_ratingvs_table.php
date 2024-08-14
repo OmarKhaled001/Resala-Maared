@@ -24,6 +24,7 @@ return new class extends Migration
             $table->integer('mixing')->nullable();
             $table->integer('head_rating')->nullable();
             $table->boolean('famliyday')->nullable();
+            $table->boolean('warning')->nullable();
             $table->string('notes')->nullable();
             $table->timestamps();
         });
