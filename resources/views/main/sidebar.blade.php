@@ -30,23 +30,25 @@
                 </div>
                 <ul class="navbar-nav" id="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link menu-link collapsed" href="#sidebarLayouts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLayouts">
-                            <i class="ph-layout"></i><span>@lang('translation.layouts')</span> <span class="badge badge-pill bg-danger" data-key="t-hot">Hot</span>
-                        </a>
-                        <div class="collapse menu-dropdown" id="sidebarLayouts">
+                        <a href="#sidebarInstructors" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarInstructors" data-key="t-instructors"> المشاركات</a>
+                        <div class="collapse menu-dropdown" id="sidebarInstructors">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
-                                    <a href="layouts-horizontal" target="_blank" class="nav-link" data-key="t-horizontal">@lang('translation.horizontal')</a>
+                                    <a class="nav-link menu-link {{Request::url() == route('events.week1')? 'active': ''}}" href="{{route("events.week1")}}">الاسبوع الاول</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="layouts-detached" target="_blank" class="nav-link" data-key="t-detached">@lang('translation.detached')</a>
+                                    <a class="nav-link menu-link {{Request::url() == route('events.week2')? 'active': ''}}" href="{{route("events.week2")}}">الاسبوع الثاني</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="layouts-two-column" target="_blank" class="nav-link" data-key="t-two-column">@lang('translation.two-column')</a>
+                                    <a class="nav-link menu-link {{Request::url() == route('events.week3')? 'active': ''}}" href="{{route("events.week3")}}">الاسبوع الثالث</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="layouts-vertical-hovered" target="_blank" class="nav-link" data-key="t-hovered">@lang('translation.hovered')</a>
+                                    <a class="nav-link menu-link {{Request::url() == route('events.week4')? 'active': ''}}" href="{{route("events.week4")}}">الاسبوع الرابع</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link menu-link {{Request::url() == route('events.week5')? 'active': ''}}" href="{{route("events.week5")}}">الاسبوع الخامس</a>
+                                </li>
+                               
                             </ul>
                         </div>
                     </li>
