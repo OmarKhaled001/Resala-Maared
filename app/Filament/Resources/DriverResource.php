@@ -47,7 +47,12 @@ class DriverResource extends Resource
                 ->placeholder('ادخل رقم الرخصة')
                 ->required()
                 ->columnSpan(2),
-                Rating::make('rating')->stars(5)->label('ألتقيم'),
+                Rating::make('rating')
+                ->stars(10)
+                ->default(1)
+                ->label('ألتقيم')
+                ->columnSpan(2),
+
 
                 Textarea::make('notes')
                 ->label('الملاحظات')
