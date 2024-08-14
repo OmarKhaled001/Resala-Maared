@@ -40,7 +40,7 @@
                                                 <td rowspan="{{count($event->volunteers)+1}}">{{$event->type}}</td>
                                                 <td rowspan="{{count($event->volunteers)+1}}">
                                                     @if($event->getMedia('event_screns')->first() !== null)
-                                                   <img  alt="profile" height="150" width="150" class="object-fit-cover text-center my-3" src="
+                                                   <img  alt="profile" height="75" width="75" class="object-fit-cover text-center my-3" src="
                                                    
                                                    
                                                        {{$event->getMedia('event_screns')->first()->getUrl()}}
