@@ -117,6 +117,7 @@ class PlaceResource extends Resource
                 TextColumn::make('location')
                 ->label('العنوان')
                 ->searchable()
+                ->link('location')
                 ->copyable(),
                 TextColumn::make('rating')
                 ->label('التقيم')
