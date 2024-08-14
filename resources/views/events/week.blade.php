@@ -24,10 +24,10 @@
                                       <thead>
                                         <tr>
                                             <th>التاريخ</th>
-                                            <th>الأسماء</th>
-                                            <th>الأرقام</th>
                                             <th>المشاركة</th>
                                             <th>الصورة</th>
+                                            <th>الأسماء</th>
+                                            <th>الأرقام</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -38,7 +38,15 @@
                                                 
                                                 
                                                 <td rowspan="{{count($event->volunteers)+1}}">{{$event->type}}</td>
-                                                <td rowspan="{{count($event->volunteers)+1}}">{{$event->type}}</td>
+                                                <td rowspan="{{count($event->volunteers)+1}}">
+                                                   <img  alt="profile" height="150" width="150" class=" rounded-circle object-fit-cover text-center my-3" src="
+                                                   
+                                                   
+                                                   @if($event->getMedia('event_screns')->first() !== null)
+                                                       {{$event->getMedia('event_screns')->first()->getUrl()}}
+                                                   @else
+                                                   ">
+                                                </td>
                                                 @foreach($event->volunteers as $volunteer)
                                                 <tr>
                                                     <td>{{$volunteer->name}}</td>
