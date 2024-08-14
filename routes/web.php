@@ -22,12 +22,12 @@ use App\Http\Controllers\VolunteerController;
 */
 
 Route::get('/', function () {return Redirect::to(Request::url().'/admin');})->name('home');
-Route::prefix('master')->group(['middleware' => ['admin']],function () {
-    Route::get('/', function () {return view('index');})->name('home');
+Route::group(['middleware' => ['admin']],function () {
+    Route::get('/', function () {return view('index');});
     
     // //Volunteers
-    Route::get('/volunteer/all' ,[VolunteerController::class,'allVolunteers'])->name('volunteers');
-    Route::get('/volunteer/add' ,[VolunteerController::class,'addVolunteers'])->name('addVol');
+    Route::get('master/volunteer/all' ,[VolunteerController::class,'allVolunteers'])->name('volunteers');
+    Route::get('master/volunteer/add' ,[VolunteerController::class,'addVolunteers'])->name('addVol');
 
     
     // //Events
