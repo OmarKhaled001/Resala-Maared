@@ -18,6 +18,7 @@ use Mokhosh\FilamentRating\Components\Rating;
 use App\Filament\Resources\PlaceResource\Pages;
 use Mokhosh\FilamentRating\Columns\RatingColumn;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 use App\Filament\Resources\PlaceResource\RelationManagers;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 
@@ -113,8 +114,13 @@ class PlaceResource extends Resource
                 ->label('رقم الرخصة')
                 ->searchable()
                 ->copyable(),
-                RatingColumn::make('rating')
-                ->label('التقيم'),
+                TextColumn::make('location')
+                ->label('العنوان')
+                ->searchable()
+                ->copyable(),
+                TextColumn::make('rating')
+                ->label('التقيم')
+                ->suffix('/10'),
             ])
             ->filters([
                 //
@@ -126,6 +132,8 @@ class PlaceResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
+                ExportBulkAction::make()
+
             ]);
     }
 
