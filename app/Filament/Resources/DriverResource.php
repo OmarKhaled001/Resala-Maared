@@ -62,6 +62,7 @@ class DriverResource extends Resource
             ])
             ->columns([
                 
+                'sm' => 2,
                 'xl' => 6,
             ]);
     }
