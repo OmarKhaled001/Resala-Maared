@@ -237,6 +237,10 @@ class EventResource extends Resource
                     'md' => 3,
                     'xl' => 3,
                 ]),
+                TextInput::make('amount')
+                        ->label('اجمالي مبلغ الايصال')
+                        ->placeholder('ادخل المبلغ  ')
+                        ->required(),
 
             SpatieMediaLibraryFileUpload::make('event_reseat')
                 ->collection('event_reseats')
