@@ -26,6 +26,7 @@
                                             <th>التاريخ</th>
                                             <th>اللجنة</th>
                                             <th>هيد الاجتماع</th>
+                                            <th>دور هيد الاجتماع</th>
                                             <th>عدد الحاضرين</th>
                                             <th>الهدف من الاجتماع</th>
                                             <th>مكان الاجتماع</th>
@@ -41,7 +42,7 @@
                                                 <td>{{$event->meeting_position}}</td>
                                                 <td>{{$event->volunteers->count()}}</td>
                                                 <td>{{$event->meeting_goals}}</td>
-                                                <td>{{$event->notes}}</td>
+                                                <td>{{$event->type}}</td>
                                                 
                                         
                                                 
