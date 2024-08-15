@@ -240,7 +240,11 @@ class EventResource extends Resource
                 TextInput::make('amount')
                         ->label('اجمالي مبلغ الايصال')
                         ->placeholder('ادخل المبلغ  ')
-                        ->required(),
+                        ->columnSpan([
+                            'sm' => 1,
+                            'md' => 3,
+                            'xl' => 3,
+                        ]),
 
             SpatieMediaLibraryFileUpload::make('event_reseat')
                 ->collection('event_reseats')
