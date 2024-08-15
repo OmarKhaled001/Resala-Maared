@@ -104,7 +104,7 @@ class EventController extends Controller
 
 
         $events = Event::where('date', $currentMonth)
-        ->where('type', '!=', null)
+        ->whereNotNull('meeting_head')
         ->orderBy('date', 'asc')->get();
 
 ;
