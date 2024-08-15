@@ -107,7 +107,7 @@ class EventController extends Controller
         ->where('type','like' , '%اجتماع%')
         ->orderBy('date', 'asc')->get();
 
-
+;
         
         return view('events.meeting',[
             'events' => $events,
