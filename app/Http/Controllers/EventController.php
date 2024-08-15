@@ -107,8 +107,6 @@ class EventController extends Controller
         ->whereNotNull('meeting_head')
         ->orderBy('date', 'asc')->get();
 
-
-        return response($events);
         return view('events.meeting',[
             'events' => $events,
         ]);
