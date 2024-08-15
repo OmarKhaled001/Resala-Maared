@@ -103,7 +103,7 @@ class EventController extends Controller
         $currentYear = Carbon::now()->year;
 
 
-        $events = Event::where('date', $currentMonth)
+        $events = Event::whereMonth('date', $currentMonth)
         ->whereNotNull('meeting_head')
         ->orderBy('date', 'asc')->get();
 
