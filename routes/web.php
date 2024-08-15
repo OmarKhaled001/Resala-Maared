@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VolunteerController;
 
 /*
@@ -26,6 +27,7 @@ Route::group(['middleware' => ['admin','auth']],function () {
     
 
     
+    Route::get('master' ,[HomeController::class,'index'])->name('home');
     // //Events
     Route::get('master/events/week1' ,[EventController::class,'eventsWeek1'])->name('events.week1');
     Route::get('master/events/week2' ,[EventController::class,'eventsWeek2'])->name('events.week2');
