@@ -56,8 +56,7 @@ class EventResource extends Resource
                 ])->schema([
                     DatePicker::make('date')
                         ->label('تاريخ الحدث')
-                        ->minDate(now()->subDays(7))
-                        ->maxDate(now())
+                        
                     ->required(),
     
                     Select::make('volunteer_id')
