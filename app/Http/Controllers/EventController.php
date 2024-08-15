@@ -104,7 +104,7 @@ class EventController extends Controller
 
 
         $events = Event::where('date', $currentMonth)
-        ->where('type', 'اجتماع اونلاين','اجتماع اوفلاين')
+        ->where('type', 'اجتماع اونلاين')
         ->orderBy('date', 'asc')->get();
 
 ;
