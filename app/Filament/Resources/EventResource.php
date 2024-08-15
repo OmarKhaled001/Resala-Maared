@@ -144,6 +144,9 @@ class EventResource extends Resource
                     TextInput::make('meeting_head')
                     ->label('مسؤول الاجتماع')
                     ->columnSpan(1),
+                    TextInput::make('meeting_position')
+                    ->label('دور مسؤول الاجتماع')
+                    ->columnSpan(1),
                     TextInput::make('meeting_goals')
                     ->label('هدف الاجتماع')
                     ->columnSpan(1),
@@ -156,7 +159,7 @@ class EventResource extends Resource
                     ->columns([
                         'sm' => 1,
                         'md' => 1,
-                        'xl' => 3,
+                        'xl' => 4,
                 ])
                 ->description('مسؤول عنه هيد الاجتماع    ')
             ->collapsed(),
