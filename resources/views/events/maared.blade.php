@@ -64,6 +64,7 @@
                                                         <img  alt="profile" height="75" width="125" class="object-fit-cover text-center my-3" src="
                                                             {{$event->getMedia('event_screns')->first()->getUrl()}}
                                                         ">
+                                                        1
                                                         </a>
                                                     @endif
                                                 </td>
