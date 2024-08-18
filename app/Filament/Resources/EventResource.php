@@ -163,7 +163,7 @@ class EventResource extends Resource
                         'xl' => 4,
                 ])
                 ->description('مسؤول عنه هيد الاجتماع    ')
-            ->collapsed(),
+            ->collapsed()->hidden(fn () => !auth()->user()->hasRole('Head')),
                 
             Section::make('بيانات الحدث الاوف لاين')
             ->schema([
