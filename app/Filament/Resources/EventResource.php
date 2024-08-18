@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use Filament\Forms;
 use Filament\Tables;
 use App\Models\Event;
+use Filament\Forms\Get;
 use Filament\Forms\Form;
 use App\Models\Volunteer;
 use Filament\Tables\Table;
@@ -18,8 +19,8 @@ use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Forms\Components\TextInput;
 
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TimePicker;
 use Filament\Tables\Filters\SelectFilter;
@@ -277,7 +278,7 @@ class EventResource extends Resource
            
                 
 
-            ]);
+            ])->hidden(fn (Get $get): bool => ! $get('is_admin'));
     }
 
     public static function table(Table $table): Table
