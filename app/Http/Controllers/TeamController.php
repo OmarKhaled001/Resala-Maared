@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class TeamController extends Controller
 {
     public function MasaolTeam() {
-        $volunteers = Volunteer::whereType('مسئول')->get();
+        $volunteers = Volunteer::whereStatus('مسئول')->get();
         return view('vol.masaol',[
             'volunteers' => $volunteers,
         ]);
