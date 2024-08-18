@@ -38,7 +38,7 @@
                                                 <td>{{$volunteer->id}}</td>
                                                 <td>{{$volunteer->name}}</td>
                                                 <td>{{$volunteer->phone}}</td>
-                                                <td>{{$volunteer->category->name}}</td>
+                                                <td>{{$volunteer->categories->name}}</td>
                                             
                                                                                                 
                                             </tr>
