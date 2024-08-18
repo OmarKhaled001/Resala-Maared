@@ -98,7 +98,7 @@
                         <div class="collapse menu-dropdown" id="team">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link menu-link {{Request::url() == route('events.meeting')? 'active': ''}}" href="{{route("events.meeting")}}">مسئول</a>
+                                    <a class="nav-link menu-link {{Request::url() == route('team.masaol')? 'active': ''}}" href="{{route("team.masaol")}}">مسئول</a>
                                 </li>
                                 {{-- <li class="nav-item">
                                     <a class="nav-link menu-link {{Request::url() == route('events.maared')? 'active': ''}}" href="{{route("events.maared")}}">المعارض</a>

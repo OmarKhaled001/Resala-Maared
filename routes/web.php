@@ -6,9 +6,10 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\EventController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VolunteerController;
 
 /*
@@ -37,6 +38,7 @@ Route::group(['middleware' => ['admin','auth']],function () {
     Route::get('master/events/meetings' ,[EventController::class,'eventsMeeting'])->name('events.meeting');
     Route::get('master/events/maared' ,[EventController::class,'eventsMaared'])->name('events.maared');
     Route::get('master/events/etaam' ,[EventController::class,'eventsEtaam'])->name('events.etaam');
+    Route::get('master/vol/masaol' ,[TeamController::class,'MasaolTeam'])->name('team.masaol');
 });
 
 
