@@ -278,7 +278,7 @@ class EventResource extends Resource
            
                 
 
-            ])->hidden(fn () => !auth()->user()->hasRole('maared'));
+            ])->hidden(fn () => !auth()->user()->is_admin);
     }
 
     public static function table(Table $table): Table
