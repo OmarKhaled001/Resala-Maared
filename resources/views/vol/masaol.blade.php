@@ -38,6 +38,7 @@
                                                 <td>{{$volunteer->id}}</td>
                                                 <td>{{$volunteer->name}}</td>
                                                 <td>{{$volunteer->phone}}</td>
+                                                <td>{{$volunteer->status}}</td>
                                                 <td>
                                                 @foreach ($volunteer->categories as $category)
                                                     {{$category->name}}
