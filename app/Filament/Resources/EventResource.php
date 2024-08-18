@@ -274,7 +274,7 @@ class EventResource extends Resource
                 'xl' => 3,
             ])
             ->description('مسؤول عنها لجنة المعارض')
-            ->collapsed()->hidden(fn () => !auth()->user()->is_admin),
+            ->collapsed()->hidden(fn () => !auth()->user()->hasRole('maared')),
            
                 
 
