@@ -48,11 +48,11 @@
                                                 <td>{{$event->expenses}}</td>
                                                 <td>{{$event->pay_date}}</td>
                                                 <td>
-                                                    @if($event->getMedia('event_reseat')->first() !== null)
+                                                    @if($event->getMedia('event_reseats')->first() !== null)
                                                     <img  alt="profile" height="75" width="75" class="object-fit-cover text-center my-3" src="
                                                     
                                                     
-                                                        {{$event->getMedia('event_reseat')->first()->getUrl()}}
+                                                        {{$event->getMedia('event_reseats')->first()->getUrl()}}
                                                         ">
                                                         @endif
                                                 </td>
