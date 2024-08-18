@@ -128,15 +128,14 @@ class EventResource extends Resource
                 Section::make()
                 ->schema([
                     Textarea::make('notes')
-                        ->label('الملاحظات')
+                    ->label('الملاحظات')
                     ->columnSpan(2),
-    
                     SpatieMediaLibraryFileUpload::make('event_scren')
-                        ->collection('event_screns')
-                        ->multiple()
-                        ->downloadable()
-                        ->label('صورة الحدث')
-                        ->downloadable()
+                    ->collection('event_screns')
+                    ->multiple()
+                    ->downloadable()
+                    ->label('صورة الحدث')
+                    ->downloadable()
                     ->columnSpan(2),
             ]),
 
