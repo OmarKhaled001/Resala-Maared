@@ -38,7 +38,11 @@
                                                 <td>{{$volunteer->id}}</td>
                                                 <td>{{$volunteer->name}}</td>
                                                 <td>{{$volunteer->phone}}</td>
-                                                <td>{{$volunteer->categories->name}}</td>
+                                                <td>
+                                                @foreach ($volunteer->categories as $category)
+                                                    {{$category->name}}
+                                                @endforeach
+                                                </td>
                                             
                                                                                                 
                                             </tr>
