@@ -60,12 +60,12 @@
                                                 </td>
                                                 <td>
                                                     @if($event->getMedia('event_screns')->first() !== null)
-                                                    <img  alt="profile" height="75" width="125" class="object-fit-cover text-center my-3" src="
-                                                    
-                                                    
-                                                        {{$event->getMedia('event_screns')->first()->getUrl()}}
+                                                        <a href="{{$event->getMedia('event_screns')->first()->getUrl()}}" download>
+                                                        <img  alt="profile" height="75" width="125" class="object-fit-cover text-center my-3" src="
+                                                            {{$event->getMedia('event_screns')->first()->getUrl()}}
                                                         ">
-                                                        @endif
+                                                        </a>
+                                                    @endif
                                                 </td>
                                                 
                                         
