@@ -278,7 +278,7 @@ class EventResource extends Resource
            
                 
 
-            ])->hidden(fn (Get $get): bool => ! $get('معرض ملابس'));
+            ])->hidden(fn () => !auth()->user()->hasRole('maared'));
     }
 
     public static function table(Table $table): Table
