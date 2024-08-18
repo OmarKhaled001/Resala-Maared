@@ -28,6 +28,7 @@
                                             <th>الرقم</th>
                                             <th>التصنيف</th>
                                             <th>اللجنة</th>
+                                            <th>اجمالي مشاركات الشهر</th>
                                        
                                         </tr>
                                     </thead>
@@ -40,10 +41,11 @@
                                                 <td>{{$volunteer->phone}}</td>
                                                 <td>{{$volunteer->status}}</td>
                                                 <td>
-                                                @foreach ($volunteer->categories as $category)
-                                                    {{$category->name}}
-                                                @endforeach
+                                                    @foreach ($volunteer->categories as $category)
+                                                    {{$category->name}} ,
+                                                    @endforeach
                                                 </td>
+                                                <td>{{$volunteer->events->count()}}</td>
                                             
                                                                                                 
                                             </tr>
