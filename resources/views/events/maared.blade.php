@@ -24,12 +24,12 @@
                                       <thead>
                                         <tr>
                                             <th>التاريخ</th>
-                                            <th>المكان</th>
                                             <th>النوع</th>
+                                            <th>المكان</th>
                                             <th>العدد</th>
                                             <th>عدد التيشرتات</th>
-                                            <th>المصاريف</th>
                                             <th>الايراد</th>
+                                            <th>المصاريف</th>
                                             <th>تاريخ التوريد</th>
                                             <th>صورة الايصال</th>
                                             <th>الصورة الجماعية</th>
@@ -40,12 +40,31 @@
                                             @foreach ($events as $event)
                                             <tr>
                                                 <td>{{$event->date}}</td>
-                                                <td>{{$event->category->name}}</td>
-                                                <td>{{$event->meeting_head}}</td>
-                                                <td>{{$event->meeting_position}}</td>
+                                                <td>{{$event->maared_type}}</td>
+                                                <td>{{$event->place->name}}</td>
                                                 <td>{{$event->volunteers->count()}}</td>
-                                                <td>{{$event->meeting_goals}}</td>
-                                                <td>{{$event->type}}</td>
+                                                <td>{{$event->tshirt}}</td>
+                                                <td>{{$event->amount}}</td>
+                                                <td>{{$event->expenses}}</td>
+                                                <td>{{$event->pay_date}}</td>
+                                                <td>
+                                                    @if($event->getMedia('event_reseat')->first() !== null)
+                                                    <img  alt="profile" height="75" width="75" class="object-fit-cover text-center my-3" src="
+                                                    
+                                                    
+                                                        {{$event->getMedia('event_reseat')->first()->getUrl()}}
+                                                        ">
+                                                        @endif
+                                                </td>
+                                                <td>
+                                                    @if($event->getMedia('event_screns')->first() !== null)
+                                                    <img  alt="profile" height="75" width="125" class="object-fit-cover text-center my-3" src="
+                                                    
+                                                    
+                                                        {{$event->getMedia('event_screns')->first()->getUrl()}}
+                                                        ">
+                                                        @endif
+                                                </td>
                                                 
                                         
                                                 
