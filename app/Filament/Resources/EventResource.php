@@ -166,6 +166,14 @@ class EventResource extends Resource
                 
             Section::make('بيانات الحدث الاوف لاين')
             ->schema([
+                Select::make('maared_type')
+                        ->options([
+                            'رمزي'    => 'رمزي',
+                            'مجاني'    => 'مجاني',
+                            'مميز'    => 'مميز',
+                        ])->label('نوع المعرض')
+                        ->placeholder('اختر نوع المعرض')
+                        ->columnSpan(1),
 
                 Select::make('place_id')
                 ->createOptionForm([
@@ -219,11 +227,7 @@ class EventResource extends Resource
                 ->placeholder('اختر اسم السائق')
                 ->searchable(['name', 'phone'])
                 ->preload()
-                ->columnSpan([
-                    'sm' => 1,
-                    'md' => 2,
-                    'xl' => 2,
-                ]),
+                ->columnSpan(1),
             
             TimePicker::make('arrived_at')
             ->label('وقت الحضور'),
@@ -232,21 +236,19 @@ class EventResource extends Resource
             TimePicker::make('back_at')
             ->label('وقت العودة'),
 
-            Textarea::make('notes')
-                ->label('الملاحظات') ->columnSpan([
-                    'sm' => 1,
-                    'md' => 3,
-                    'xl' => 3,
-                ]),
-                TextInput::make('amount')
-                        ->label('اجمالي مبلغ الايصال')
-                        ->placeholder('ادخل المبلغ  ')
-                        ->columnSpan([
-                            'sm' => 1,
-                            'md' => 3,
-                            'xl' => 3,
-                        ]),
-
+            
+            TextInput::make('amount')
+            ->label('اجمالي مبلغ الايصال')
+            ->placeholder('ادخل المبلغ  ')
+            ->columnSpan(1),
+                TextInput::make('expenses')
+                        ->label('اجمالي المصاريف')
+                        ->placeholder('ادخل المبلغ المصروف')
+                        ->columnSpan(1),
+                        TextInput::make('pay_date')
+                        ->label(' تاريخ توريد الايصال')
+                        ->placeholder('ادخل تاريخ توريد')
+                        ->columnSpan(1),
             SpatieMediaLibraryFileUpload::make('event_reseat')
                 ->collection('event_reseats')
                 ->multiple()
@@ -258,6 +260,12 @@ class EventResource extends Resource
                     'md' => 3,
                     'xl' => 3,
                 ]),
+                Textarea::make('notes')
+                    ->label('الملاحظات') ->columnSpan([
+                        'sm' => 1,
+                        'md' => 3,
+                        'xl' => 3,
+                    ]),
             ])
             ->columns([
                 'sm' => 1,

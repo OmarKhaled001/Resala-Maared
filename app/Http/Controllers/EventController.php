@@ -100,7 +100,6 @@ class EventController extends Controller
     {
         
         $currentMonth = Carbon::now()->month;
-        $currentYear = Carbon::now()->year;
 
 
         $events = Event::whereMonth('date', $currentMonth)
@@ -111,41 +110,21 @@ class EventController extends Controller
             'events' => $events,
         ]);
     }
-
-
-
-    public function create()
+    public function eventsMaared (Request $request)
     {
-        //
+        
+        $currentMonth = Carbon::now()->month;
+
+        $events = Event::whereMonth('date', $currentMonth)
+        ->whereType('معرض ملابس')
+        ->orderBy('date', 'asc')->get();
+
+        return view('events.maared',[
+            'events' => $events,
+        ]);
     }
 
 
-    public function store(Request $request)
-    {
-        //
-    }
 
-
-    public function show(Event $Event)
-    {
-        //
-    }
-
-
-    public function edit(Event $Event)
-    {
-        //
-    }
-
-
-    public function update(Request $request, Event $Event)
-    {
-        //
-    }
-
-
-    public function destroy(Event $Event)
-    {
-        //
-    }
+  
 }
