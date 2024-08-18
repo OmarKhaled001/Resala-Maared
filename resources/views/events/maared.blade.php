@@ -48,13 +48,15 @@
                                                 <td>{{$event->expenses}}</td>
                                                 <td>{{$event->pay_date}}</td>
                                                 <td>
-                                                    @if($event->getMedia('event_reseats')->first() !== null)
+                                                @if($event->getMedia('event_reseats')->first() !== null)
+                                                <a href="{{$event->getMedia('event_reseats')->first()->getUrl()}}" download>
                                                     <img  alt="profile" height="75" width="75" class="object-fit-cover text-center my-3" src="
                                                     
                                                     
                                                         {{$event->getMedia('event_reseats')->first()->getUrl()}}
                                                         ">
-                                                        @endif
+                                                    </a>
+                                                @endif
                                                 </td>
                                                 <td>
                                                     @if($event->getMedia('event_screns')->first() !== null)
