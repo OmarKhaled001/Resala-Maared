@@ -274,11 +274,11 @@ class EventResource extends Resource
                 'xl' => 3,
             ])
             ->description('مسؤول عنها لجنة المعارض')
-            ->collapsed(),
+            ->collapsed()->hidden(fn () => !auth()->user()->is_admin),
            
                 
 
-            ])->hidden(fn () => !auth()->user()->is_admin);
+            ]);
     }
 
     public static function table(Table $table): Table
