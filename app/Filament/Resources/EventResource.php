@@ -242,14 +242,14 @@ class EventResource extends Resource
             ->label('اجمالي مبلغ الايصال')
             ->placeholder('ادخل المبلغ  ')
             ->columnSpan(1),
-                TextInput::make('expenses')
-                        ->label('اجمالي المصاريف')
-                        ->placeholder('ادخل المبلغ المصروف')
-                        ->columnSpan(1),
-                        TextInput::make('pay_date')
-                        ->label(' تاريخ توريد الايصال')
-                        ->placeholder('ادخل تاريخ توريد')
-                        ->columnSpan(1),
+            TextInput::make('expenses')
+            ->label('اجمالي المصاريف')
+            ->placeholder('ادخل المبلغ المصروف')
+            ->columnSpan(1),
+            DatePicker::make('pay_date')
+            ->label(' تاريخ توريد الايصال')
+            ->placeholder('ادخل تاريخ توريد')
+            ->columnSpan(1),
             SpatieMediaLibraryFileUpload::make('event_reseat')
                 ->collection('event_reseats')
                 ->multiple()
