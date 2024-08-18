@@ -118,7 +118,7 @@ class EventResource extends Resource
                             'اخري'    => 'اخري',
                         ])->label('نوع المشاركة')
                         ->placeholder('اختر النوع')
-                    ->required(),
+                    ->required()->live(),
     
                     TextInput::make('tshirt')
                         ->label('تيشرت رسالة')
@@ -278,7 +278,7 @@ class EventResource extends Resource
            
                 
 
-            ])->hidden(fn (Get $get): bool => ! $get('is_admin'));
+            ])->hidden(fn (Get $get): bool => ! $get('معرض ملابس'));
     }
 
     public static function table(Table $table): Table
