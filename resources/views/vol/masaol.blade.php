@@ -45,7 +45,9 @@
                                                     {{$category->name}} ,
                                                     @endforeach
                                                 </td>
-                                                <td>{{$volunteer->events->count()}}</td>
+                                                <td>
+                                                   
+                                                </td>
                                             
                                                                                                 
                                             </tr>
