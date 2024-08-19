@@ -18,7 +18,7 @@ class TeamController extends Controller
             $date = Carbon::create($year, $month, $day);
             foreach($volunteers as $volunteer){
                 foreach($volunteer->events as $event){
-                    $eventDate = Carbon::create($event->date);
+                    $eventDate = $event->date;
                     if($eventDate == $date){
                         $history = new History();
                         $history->count = 1; 
@@ -27,7 +27,7 @@ class TeamController extends Controller
                         $volunteer->histories()->attach($history->id);
                         
                     }
-                    return response($eventDate);
+                    return response([$eventDate,$date]);
                     
                 }
             }
