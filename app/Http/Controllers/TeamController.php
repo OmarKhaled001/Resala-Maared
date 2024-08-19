@@ -20,11 +20,15 @@ class TeamController extends Controller
                 foreach($volunteer->events as $event){
                     $eventDate = $event->date;
                     if($eventDate == $date){
-                        $history = new History();
-                        $history->count = 1; 
-                        $history->date = $date; 
-                        $history->save();
-                        $volunteer->histories()->attach($history->id);
+                        foreach($volunteer->histories as $history){
+                            if($history->date != $eventDate){
+                                $history = new History();
+                                $history->count = 1; 
+                                $history->date = $date; 
+                                $history->save();
+                                $volunteer->histories()->attach($history->id);
+                            }
+                        }
                         
                     }
                     
