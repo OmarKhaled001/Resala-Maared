@@ -25,9 +25,9 @@ class TeamController extends Controller
                         $history->date = $date; 
                         $history->save();
                         $volunteer->histories()->attach($history->id);
-                        return response($eventDate);
-
+                        
                     }
+                    return response($eventDate);
                     
                 }
             }
