@@ -18,7 +18,7 @@ class TeamController extends Controller
             $date = Carbon::create($year, $month, $day)->format('Y-m-d');
             foreach($volunteers as $volunteer){
                 $history = $volunteer->histories()->wherePivot('volunteer_id', $volunteer)->where('date',$date)->get();
-                return response($history);
+                return response([$history, $date]);
                 foreach($volunteer->events as $event){
                     $eventDate = $event->date;
                     if($eventDate == $date){
