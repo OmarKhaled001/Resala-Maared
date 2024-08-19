@@ -18,7 +18,8 @@ class TeamController extends Controller
             $date = Carbon::create($year, $month, $day);
             foreach($volunteers as $volunteer){
                 foreach($volunteer->events as $event){
-                    if($event->date == $date){
+                    $eventDate = Carbon::create($event->date);
+                    if($eventDate == $date){
                         $history = new History();
                         $history->count = 1; 
                         $history->date = $date; 
