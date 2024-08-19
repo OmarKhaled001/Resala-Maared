@@ -17,17 +17,17 @@ class TeamController extends Controller
         for ($day = 1; $day <= $daysInMonth; $day++) {
             $date = Carbon::create($year, $month, $day)->format('Y-m-d');
             foreach($volunteers as $volunteer){
+                $history = $volunteer->histories()->wherePivot('volunteer_id', $volunteer)->where('date',$date)->get();
+                return response($history);
                 foreach($volunteer->events as $event){
                     $eventDate = $event->date;
                     if($eventDate == $date){
-                        foreach($volunteer->histories as $history){
                             if($history->date != $eventDate){
                                 $history = new History();
                                 $history->count = 1; 
                                 $history->date = $date; 
                                 $history->save();
                                 $volunteer->histories()->attach($history->id);
-                            }
                         }
                         
                     }
