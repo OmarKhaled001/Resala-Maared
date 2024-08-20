@@ -14,8 +14,8 @@ class TeamController extends Controller
         $month = Carbon::now()->month;
         $year = Carbon::now()->year;
         $daysInMonth = Carbon::create($year, $month)->daysInMonth;
-        foreach($volunteers as $volunteer){
-            for ($day = 1; $day <= $daysInMonth; $day++) {
+        for ($day = 1; $day <= $daysInMonth; $day++) {
+            foreach($volunteers as $volunteer){
                 $date = Carbon::create($year, $month, $day)->format('Y-m-d');
                     foreach($volunteer->events as $event){
                         $eventDate = $event->date;
@@ -26,7 +26,7 @@ class TeamController extends Controller
                                     $history->date =  $date;
                                     $history->count =  1;
                                     $history->save();
-                                    $volunteer->histories()->attach($history->id);
+                                    $history->volunteers()->attach($volunteer->id);
                                 }
 
                              }
