@@ -73,8 +73,8 @@
                                             
 
                                             $contribution = Contribution::where('volunteer_id',$volunteer->id)
-                                            ->where('year', $y)
-                                            ->where('month', $m)
+                                            ->where('year',$y)
+                                            ->where('month',$m)
                                             ->get()
                                             ->first();
                                             dd($contribution);
