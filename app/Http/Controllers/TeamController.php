@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\History;
 use App\Models\Volunteer;
+use App\Models\Contribution;
 use Illuminate\Http\Request;
 
 class TeamController extends Controller
@@ -14,17 +15,24 @@ class TeamController extends Controller
         $month = Carbon::now()->month;
         $year = Carbon::now()->year;
         $daysInMonth = Carbon::create($year, $month)->daysInMonth;
-        for ($day = 1; $day <= $daysInMonth; $day++) {
-            $d = Carbon::create($year, $month, $day)->format('d');
-            $m = Carbon::create($year, $month, $day)->format('m');
-            $y = Carbon::create($year, $month, $day)->format('Y');
-            if($d == 1){
-                return response($d);
+     
+        
+        foreach( $volunteers as $volunteer){
+            if($volunteer->events != null){
+                foreach ($volunteer->events as $event) {
+                        $day = Carbon::create($event->date)->format('d');
+                        $month = Carbon::create($event->date)->format('m');
+                        $year= Carbon::create($event->date)->format('Y');
+                        $contribution = new Contribution;
+                        $contribution->year = $year;
+                        $contribution->month = $month;
+                        $contribution->$day = 1;
+                        $contribution->save();
+                    }
 
-            }
-            return response([$y,$m,$d]);
-
+                }
         }
+    
         
         return view('vol.masaol',[
             'volunteers' => $volunteers,
