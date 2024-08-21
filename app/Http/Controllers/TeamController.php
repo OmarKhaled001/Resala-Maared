@@ -23,6 +23,7 @@ class TeamController extends Controller
                 $contribution->volunteer_id =$volunteer->id;
                 foreach ($volunteer->events as $event) {
                         $day = Carbon::create($event->date)->format('d');
+                        return response($day );
                         $month = Carbon::create($event->date)->format('m');
                         $year= Carbon::create($event->date)->format('Y');
                         $contribution->year = $year;
