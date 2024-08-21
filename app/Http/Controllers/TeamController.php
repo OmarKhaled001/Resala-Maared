@@ -43,7 +43,6 @@ class TeamController extends Controller
                         $contribution->$day = 1;
                         $contribution->save();
                     }
-                    $contribution->save();
             
                     }
 

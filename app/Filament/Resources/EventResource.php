@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use Carbon\Carbon;
 use Filament\Forms;
 use Filament\Tables;
 use App\Models\Event;
@@ -9,6 +10,7 @@ use Filament\Forms\Get;
 use Filament\Forms\Form;
 use App\Models\Volunteer;
 use Filament\Tables\Table;
+use App\Models\Contribution;
 use Filament\Resources\Resource;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Grouping\Group;
@@ -17,9 +19,9 @@ use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\Textarea;
+
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
-
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TimePicker;
@@ -353,6 +355,44 @@ class EventResource extends Resource
             ->bulkActions([
                
             ]);
+    }
+
+    public static function afterCreate($record): void
+    {
+        $volunteers = Volunteer::all();
+        
+        foreach( $volunteers as $volunteer){
+            if($volunteer->events != null){
+                // get all contribution
+                $total = 0;
+                foreach ($volunteer->events as $event) {
+                    $day = Carbon::create($event->date)->format('d');
+                    $month = Carbon::create($event->date)->format('m');
+                    $year= Carbon::create($event->date)->format('Y');
+                    $contribution = Contribution::where('volunteer_id',$volunteer->id)
+                    ->where('year', $year)
+                    ->where('month', $month)
+                    ->get()
+                    ->first();
+                    if($contribution != null){
+                        $contribution->year = $year;
+                        $contribution->month = $month;
+                        $contribution->$day = 1;
+                        $contribution->save();
+                    }else{
+                        $contribution = new Contribution;
+                        $contribution->volunteer_id =$volunteer->id;
+                        $contribution->year = $year;
+                        $contribution->month = $month;
+                        $contribution->$day = 1;
+                        $contribution->save();
+                    }
+            
+                    }
+
+
+            }
+        }
     }
 
     public static function getRelations(): array
