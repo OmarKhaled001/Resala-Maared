@@ -49,10 +49,13 @@ class TeamController extends Controller
 
             }
         }
+        $contributions = Contribution::where('year', $year)
+                    ->where('month', $month)
+                    ->get();
     
         
         return view('vol.masaol',[
-            'contribution' => $contribution,
+            'contributions' => $contributions,
             'volunteers' => $volunteers,
             'm' => $m,
             'y' => $y,
