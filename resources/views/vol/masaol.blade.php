@@ -72,8 +72,6 @@
                                                 <td>{{$volunteer->phone}}</td>
                                                 <td>{{$volunteer->status}}</td>
                                                 <td>
-
-                                                   
                                                         {{ $contribution->"01"}}
                                                 </td>
                                                     
