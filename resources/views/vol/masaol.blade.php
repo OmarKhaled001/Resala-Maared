@@ -69,6 +69,7 @@
                                             @php
                                             // Get the contributions for the current volunteer
                                             $contribution = $volunteer->contributions->where('year',$y)->where('month',$m)->first();
+                                            dd($contribution);
                                              @endphp
                                             <tr>
                                                 <td>{{$volunteer->id}}</td>
