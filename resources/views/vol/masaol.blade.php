@@ -75,7 +75,7 @@
                                                 <td>{{$volunteer->name}}</td>
                                                 <td>{{$volunteer->phone}}</td>
                                                 <td>{{$volunteer->status}}</td>
-                                                @for ($i = 1; $i <= 31; $i++)
+                                                @for ($i = 01; $i <= 31; $i++)
                                                    
                                                     <td>{{ $contribution ? $contribution->$i : '' }}</td>
                                                 @endfor
