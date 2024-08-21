@@ -13,10 +13,10 @@ class TeamController extends Controller
 {
     public function MasaolTeam() {
         $volunteers = Volunteer::all();
-        $month = Carbon::now()->month;
-        $year = Carbon::now()->year;
-        $daysInMonth = Carbon::create($year, $month)->daysInMonth;
-     
+        $Month = Carbon::now()->month;
+        $Year = Carbon::now()->year;
+        $m = Carbon::create($Month)->format('m');
+        $y= Carbon::create($Year)->format('Y');
         foreach( $volunteers as $volunteer){
             if($volunteer->events != null){
                 // get all contribution
@@ -55,6 +55,8 @@ class TeamController extends Controller
         
         return view('vol.masaol',[
             'volunteers' => $volunteers,
+            'm' => $m,
+            'y' => $y,
         ]);
 
     }
