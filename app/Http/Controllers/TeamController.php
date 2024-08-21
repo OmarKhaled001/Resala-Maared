@@ -12,7 +12,17 @@ use Illuminate\Support\Facades\DB;
 class TeamController extends Controller
 {
     public function MasaolTeam() {
-        $volunteers = Volunteer::all();
+
+        $currentYear = now()->year;
+        $currentMonth = now()->month;
+
+            
+        $m = Carbon::create($currentMonth)->format('m');
+        $y= Carbon::create($currentYear)->format('Y');
+
+        $volunteers = Volunteer::with(['contributions' => function ($query) use ($currentYear, $currentMonth) {
+            $query->where('year', $currentYear)->where('month', $currentMonth);
+        }])->get();
        
         foreach( $volunteers as $volunteer){
             if($volunteer->events != null){
@@ -48,14 +58,10 @@ class TeamController extends Controller
         }
 
     
-        $Month = Carbon::now()->month;
-        $Year = Carbon::now()->year;
-        $m = Carbon::create($Month)->format('m');
-        $y= Carbon::create($Year)->format('Y');
+ 
         return view('vol.masaol',[
             'volunteers' => $volunteers,
-            'm' => $m,
-            'y' => $y,
+      
         ]);
 
     }

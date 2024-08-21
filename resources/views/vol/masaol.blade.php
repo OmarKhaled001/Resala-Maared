@@ -72,7 +72,7 @@
                                             @php
                                             
 
-                                            $contribution = Contribution::where('volunteer_id',1)
+                                            $contribution = Contribution::where('volunteer_id',$volunteer->id)
                                             ->where('year',$y)
                                             ->where('month',$m)
                                             ->get()
