@@ -142,37 +142,7 @@ class EventController extends Controller
             if($volunteer->events != null){
                 // get all contribution
                 $total = 0;
-                $day1=01;
-                $day2=02;
-                $day3=03;
-                $day4=04;
-                $day5=05;
-                $day6=06;
-                $day7=07;
-                $day8=08;
-                $day9=09;
-                $day10=10;
-                $day11=11;
-                $day12=12;
-                $day13=13;
-                $day14=14;
-                $day15=15;
-                $day16=16;
-                $day17=17;
-                $day18=18;
-                $day19=19;
-                $day20=20;
-                $day21=21;
-                $day22=22;
-                $day23=23;
-                $day24=24;
-                $day25=25;
-                $day26=26;
-                $day27=27;
-                $day28=28;
-                $day29=29;
-                $day30=30;
-                $day31=31;
+               
 
 
           
@@ -190,39 +160,7 @@ class EventController extends Controller
                         $contribution->year = $year;
                         $contribution->month = $month;
                         $contribution->$day = 1;
-                        $contribution->$total = 
-                        $contribution->$day1+
-                        $contribution->$day2+
-                        $contribution->$day3+
-                        $contribution->$day4+
-                        $contribution->$day5+
-                        $contribution->$day6+
-                        $contribution->$day7+
-                        $contribution->$day8+
-                        $contribution->$day9+
-                        $contribution->$day10+
-                        $contribution->$day11+
-                        $contribution->$day12+
-                        $contribution->$day13+
-                        $contribution->$day14+
-                        $contribution->$day15+
-                        $contribution->$day16+
-                        $contribution->$day17+
-                        $contribution->$day18+
-                        $contribution->$day19+
-                        $contribution->$day20+
-                        $contribution->$day21+
-                        $contribution->$day22+
-                        $contribution->$day23+
-                        $contribution->$day24+
-                        $contribution->$day25+
-                        $contribution->$day26+
-                        $contribution->$day27+
-                        $contribution->$day28+
-                        $contribution->$day29+
-                        $contribution->$day30+
-                        $contribution->$day31;
-
+                       
                         $contribution->total = $contribution->column1 + $contribution->column2 + $contribution->column3 ;
                         $contribution->save();
                     }else{
