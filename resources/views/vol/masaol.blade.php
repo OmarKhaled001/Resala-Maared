@@ -5,6 +5,10 @@
 <meta content="Minimal Admin & dashboard Template" name="description">
     @include('main.meta')
 </head>
+@php
+         $month = Carbon::now()->month->format('m');
+         $year = Carbon::now()->year->format('Y');
+@endphp
 <body>
     <div id="layout-wrapper">
         @include('main.topbar')
@@ -45,7 +49,13 @@
                                                     {{$category->name}} 
                                                     @endforeach
                                                 </td>
-                                                <td>{{$volunteer->contributions->total}}</td>
+                                                <td>
+                                                    @foreach ($volunteer->contributions->where('year', $year)
+                                                    ->where('month', $month) as $contribution)
+                                                        
+                                                        {{ $contribution->total}}</td>
+                                                    @endforeach
+                                                    
                                                
                                             
                                                                                                 
