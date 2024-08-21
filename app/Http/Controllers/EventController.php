@@ -151,14 +151,15 @@ class EventController extends Controller
                     ->where('month', $month)
                     ->get()
                     ->first();
-                    $sum = $contribution->getAttributes();
                     if($contribution != null){
                         $contribution->year = $year;
                         $contribution->month = $month;
                         $contribution->$day = 1;
                         $contribution->save();
+                       // Calculate the sum of all columns except the excluded ones
+                        $sum = $contribution->getAttributes(); // Get all attributes of the row
                         $sum = array_reduce(array_keys($sum), function($carry, $key) use ($sum, $excludedColumns) {
-                            if (!in_array($key, $excludedColumns)) {
+                            if (!in_array($key, $excludedColumns) && is_numeric($sum[$key])) {
                                 $carry += $sum[$key];
                             }
                             return $carry;
@@ -174,8 +175,10 @@ class EventController extends Controller
                         $contribution->month = $month;
                         $contribution->$day = 1;
                         $contribution->save();
+                       // Calculate the sum of all columns except the excluded ones
+                        $sum = $contribution->getAttributes(); // Get all attributes of the row
                         $sum = array_reduce(array_keys($sum), function($carry, $key) use ($sum, $excludedColumns) {
-                            if (!in_array($key, $excludedColumns)) {
+                            if (!in_array($key, $excludedColumns) && is_numeric($sum[$key])) {
                                 $carry += $sum[$key];
                             }
                             return $carry;
