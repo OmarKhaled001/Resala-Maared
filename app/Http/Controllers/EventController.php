@@ -130,6 +130,10 @@ class EventController extends Controller
         $currentYear = now()->year;
         $currentMonth = now()->month;
 
+            
+        $m = Carbon::create($currentMonth)->format('m');
+        $y= Carbon::create($currentYear)->format('Y');
+
         $volunteers = Volunteer::with(['contributions' => function ($query) use ($currentYear, $currentMonth) {
             $query->where('year', $currentYear)->where('month', $currentMonth);
         }])->get();
@@ -152,16 +156,18 @@ class EventController extends Controller
                         $contribution->year = $year;
                         $contribution->month = $month;
                         $contribution->$day = 1;
+                        $total+=1;
+                        $contribution->total = $total;
                         $contribution->save();
-                        
                     }else{
                         $contribution = new Contribution;
                         $contribution->volunteer_id =$volunteer->id;
                         $contribution->year = $year;
                         $contribution->month = $month;
+                        $total+=1;
+                        $contribution->total = $total;
                         $contribution->$day = 1;
                         $contribution->save();
-                        
             
                     }
 
