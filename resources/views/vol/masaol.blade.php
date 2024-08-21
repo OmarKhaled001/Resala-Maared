@@ -67,8 +67,13 @@
                                         @if (count($volunteers)>0)
                                             @foreach ($volunteers as $volunteer)
                                             @php
-                                            // Get the contributions for the current volunteer
-                                            $contribution = $volunteer->contributions->where('year',$y)->where('month',$m)->first();
+                                            use App\Models\Contribution;
+
+                                            $contribution = Contribution::where('volunteer_id',$volunteer->id)
+                                            ->where('year', $y)
+                                            ->where('month', $m)
+                                            ->get()
+                                            ->first();
                                             dd($contribution);
                                              @endphp
                                             <tr>
