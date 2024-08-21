@@ -141,8 +141,7 @@ class EventController extends Controller
         foreach( $volunteers as $volunteer){
             if($volunteer->events != null){
                 // get all contribution
-                $total = 0;
-         
+                $excludedColumns = ['id', 'total','year','month'];
                 foreach ($volunteer->events as $event) {
                     $day = Carbon::create($event->date)->format('d');
                     $month = Carbon::create($event->date)->format('m');
@@ -152,22 +151,39 @@ class EventController extends Controller
                     ->where('month', $month)
                     ->get()
                     ->first();
+                    $sum = $contribution->getAttributes();
                     if($contribution != null){
                         $contribution->year = $year;
                         $contribution->month = $month;
                         $contribution->$day = 1;
-                        $total+=1;
-                        $contribution->total = $total;
                         $contribution->save();
+                        $sum = array_reduce(array_keys($sum), function($carry, $key) use ($sum, $excludedColumns) {
+                            if (!in_array($key, $excludedColumns)) {
+                                $carry += $sum[$key];
+                            }
+                            return $carry;
+                        }, 0);
+                        
+                        // Optionally, update the 'total' column with the sum
+                        $contribution->total = $sum;
+                       $contribution->save();
                     }else{
                         $contribution = new Contribution;
                         $contribution->volunteer_id =$volunteer->id;
                         $contribution->year = $year;
                         $contribution->month = $month;
-                        $total+=1;
-                        $contribution->total = $total;
                         $contribution->$day = 1;
                         $contribution->save();
+                        $sum = array_reduce(array_keys($sum), function($carry, $key) use ($sum, $excludedColumns) {
+                            if (!in_array($key, $excludedColumns)) {
+                                $carry += $sum[$key];
+                            }
+                            return $carry;
+                        }, 0);
+                        
+                        // Optionally, update the 'total' column with the sum
+                        $contribution->total = $sum;
+                       $contribution->save();
             
                     }
 
