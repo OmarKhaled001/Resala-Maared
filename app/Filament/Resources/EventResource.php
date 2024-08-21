@@ -49,10 +49,11 @@ class EventResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-cube-transparent';
 
+
     public static function form(Form $form): Form
     {
         return $form
-            ->schema([
+        ->schema([
             Section::make()
                 ->columns([
                     'sm' => 1,
@@ -277,44 +278,46 @@ class EventResource extends Resource
             ])
             ->description('مسؤول عنها لجنة المعارض')
             ->collapsed()->hidden(fn () => !auth()->user()->hasRole('maared')),
-            CreateAction::make()
-            ->after(function () {
-                 // Fetch all volunteers
-        $volunteers = Volunteer::all();
-        
-        foreach ($volunteers as $volunteer) {
-            if ($volunteer->events->isNotEmpty()) {
-                // Get all contributions
-                foreach ($volunteer->events as $event) {
-                    $day = Carbon::create($event->date)->format('d');
-                    $month = Carbon::create($event->date)->format('m');
-                    $year = Carbon::create($event->date)->format('Y');
+            
+                
 
-                    // Find or create a Contribution record
-                    $contribution = Contribution::where('volunteer_id', $volunteer->id)
-                        ->where('year', $year)
-                        ->where('month', $month)
-                        ->first();
+        ]);
+    
+        CreateAction::make()
+        ->after(function () {
+             // Fetch all volunteers
+            $volunteers = Volunteer::all();
+            
+            foreach ($volunteers as $volunteer) {
+                if ($volunteer->events->isNotEmpty()) {
+                    // Get all contributions
+                    foreach ($volunteer->events as $event) {
+                        $day = Carbon::create($event->date)->format('d');
+                        $month = Carbon::create($event->date)->format('m');
+                        $year = Carbon::create($event->date)->format('Y');
 
-                    if ($contribution) {
-                        $contribution->$day = 1; // Update the specific day
-                        $contribution->save();
-                    } else {
-                        $contribution = new Contribution;
-                        $contribution->volunteer_id = $volunteer->id;
-                        $contribution->year = $year;
-                        $contribution->month = $month;
-                        $contribution->$day = 1; // Set the specific day
-                        $contribution->save();
+                        // Find or create a Contribution record
+                        $contribution = Contribution::where('volunteer_id', $volunteer->id)
+                            ->where('year', $year)
+                            ->where('month', $month)
+                            ->first();
+
+                        if ($contribution) {
+                            $contribution->$day = 1; // Update the specific day
+                            $contribution->save();
+                        } else {
+                            $contribution = new Contribution;
+                            $contribution->volunteer_id = $volunteer->id;
+                            $contribution->year = $year;
+                            $contribution->month = $month;
+                            $contribution->$day = 1; // Set the specific day
+                            $contribution->save();
+                        }
                     }
                 }
             }
-        }
-            })
-                
-                
-
-            ]);
+                });
+            
     }
 
     public static function table(Table $table): Table
