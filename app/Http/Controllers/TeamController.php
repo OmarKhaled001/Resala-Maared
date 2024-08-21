@@ -14,7 +14,13 @@ class TeamController extends Controller
         $month = Carbon::now()->month;
         $year = Carbon::now()->year;
         $daysInMonth = Carbon::create($year, $month)->daysInMonth;
-       
+        for ($day = 1; $day <= $daysInMonth; $day++) {
+            $d = Carbon::create($year, $month, $day)->format('d');
+            $m = Carbon::create($year, $month, $day)->format('m');
+            $y = Carbon::create($year, $month, $day)->format('Y');
+            return response([$y,$m,$d]);
+
+        }
         
         return view('vol.masaol',[
             'volunteers' => $volunteers,
