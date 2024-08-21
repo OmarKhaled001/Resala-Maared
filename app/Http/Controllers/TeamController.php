@@ -18,6 +18,10 @@ class TeamController extends Controller
             $d = Carbon::create($year, $month, $day)->format('d');
             $m = Carbon::create($year, $month, $day)->format('m');
             $y = Carbon::create($year, $month, $day)->format('Y');
+            if($d == 1){
+                return response($d);
+
+            }
             return response([$y,$m,$d]);
 
         }
