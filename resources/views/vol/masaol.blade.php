@@ -76,7 +76,7 @@
                                                     @foreach ($volunteer->contributions->where('year', $y)
                                                     ->where('month', $m) as $contribution)
                                                         
-                                                        {{ $contribution->'01'}}
+                                                        {{ $contribution->"01"}}
                                                     @endforeach
                                                 </td>
                                                     
