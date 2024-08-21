@@ -29,7 +29,7 @@
                                             <th>الرقم</th>
                                             <th>التصنيف</th>
                                             <th>01</th>
-                                            {{-- <th>02</th>
+                                            <th>02</th>
                                             <th>03</th>
                                             <th>04</th>
                                             <th>05</th>
@@ -59,24 +59,31 @@
                                             <th>29</th>
                                             <th>30</th>
                                             <th>31</th>
-                                            <th>اجمالي</th> --}}
+                                            <th>اجمالي</th>
                                        
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @if (count($volunteers)>0)
                                             @foreach ($volunteers as $volunteer)
+                                            @php
+                                            // Get the contributions for the current volunteer
+                                            $contribution = $volunteer->contributions->where('year', $y)->where('month', $m)->first();
+                                             @endphp
                                             <tr>
                                                 <td>{{$volunteer->id}}</td>
                                                 <td>{{$volunteer->name}}</td>
                                                 <td>{{$volunteer->phone}}</td>
                                                 <td>{{$volunteer->status}}</td>
-                                                <td>
-                                                    @foreach ($volunteer->contributions->where('year', $y)->where('month', $m) as $contribution)
-                                                        
-                                                    {{ $contribution->"01"}}
-                                                    @endforeach
-                                                </td>
+                                                @for ($i = 1; $i <= 31; $i++)
+                                                    @php
+                                                        $day = str_pad($i, 2, '0', STR_PAD_LEFT);
+                                                    @endphp
+                                                    <td>{{ $contribution ? $contribution->$day : '0' }}</td>
+                                                @endfor
+                                                
+                                                <td>{{ $contribution ? $contribution->total : '0' }}</td>
+                                                
                                                     
                                                
                                             
