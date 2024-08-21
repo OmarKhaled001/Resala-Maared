@@ -17,9 +17,9 @@ class TeamController extends Controller
         $daysInMonth = Carbon::create($year, $month)->daysInMonth;
      
         foreach( $volunteers as $volunteer){
-            $total = 0;
             if($volunteer->events != null){
                 // get all contribution
+                $total = 0;
                 foreach ($volunteer->events as $event) {
                     $day = Carbon::create($event->date)->format('d');
                     $month = Carbon::create($event->date)->format('m');
@@ -33,6 +33,7 @@ class TeamController extends Controller
                         $contribution->year = $year;
                         $contribution->month = $month;
                         $contribution->$day = 1;
+                        return response($contribution->$day);
                         $contribution->save();
                         $total += 1;
                     }else{
