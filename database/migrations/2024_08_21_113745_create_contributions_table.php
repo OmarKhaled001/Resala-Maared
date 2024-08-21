@@ -18,6 +18,8 @@ return new class extends Migration
             ->references('id')
             ->on('volunteers')
             ->cascadeOnDelete();
+            $table->string('year');
+            $table->string('month');
             $table->string('1');
             $table->string('2');
             $table->string('3');
