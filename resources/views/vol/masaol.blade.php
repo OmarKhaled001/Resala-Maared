@@ -76,10 +76,8 @@
                                                 <td>{{$volunteer->phone}}</td>
                                                 <td>{{$volunteer->status}}</td>
                                                 @for ($i = 1; $i <= 31; $i++)
-                                                    @php
-                                                        $day = str_pad($i, 2, '0', STR_PAD_LEFT);
-                                                    @endphp
-                                                    <td>{{ $contribution ? $contribution->$day : '0' }}</td>
+                                                   
+                                                    <td>{{ $contribution ? $contribution->$i : '' }}</td>
                                                 @endfor
                                                 
                                                 <td>{{ $contribution ? $contribution->total : '0' }}</td>
