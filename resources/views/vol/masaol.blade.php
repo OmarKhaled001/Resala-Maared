@@ -67,8 +67,10 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if (count($volunteers)>0)
+                                        @if (count($volunteers)>0 )
                                             @foreach ($volunteers as $volunteer)
+                                            @if (count($volunteer->contributions)>0)
+                                                
                                             @php
                                              $contribution = $volunteer->contributions->first();
                                              @endphp
@@ -91,6 +93,7 @@
                                             
                                                                                                 
                                             </tr>
+                                            @endif
                                             
                                             @endforeach
                                             @endif
