@@ -52,6 +52,7 @@ class TeamController extends Controller
     
         
         return view('vol.masaol',[
+            'contribution' => $contribution,
             'volunteers' => $volunteers,
             'm' => $m,
             'y' => $y,
