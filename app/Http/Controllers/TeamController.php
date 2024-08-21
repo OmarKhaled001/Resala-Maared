@@ -49,8 +49,8 @@ class TeamController extends Controller
 
             }
         }
-        $contributions = Contribution::where('year', $year)
-                    ->where('month', $month)
+        $contributions = Contribution::where('year', $y)
+                    ->where('month', $m)
                     ->get();
     
         
