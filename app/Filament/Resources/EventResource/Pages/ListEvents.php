@@ -13,7 +13,8 @@ class ListEvents extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()->label('اضافة مشاركة')
+            ->successRedirectUrl(fn ($record) => route('team.masaol')),
         ];
     }
 }
