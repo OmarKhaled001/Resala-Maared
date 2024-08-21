@@ -68,16 +68,18 @@
                                             @foreach ($volunteers as $volunteer)
                                             @php
                                             // Get the contributions for the current volunteer
-                                            $contribution = $volunteer->contributions->where('year', $y)->where('month', $m)->first();
+                                            $contribution = $volunteer->contributions->where('year', $y)->where('month', $m)->get()->first();
                                              @endphp
                                             <tr>
                                                 <td>{{$volunteer->id}}</td>
                                                 <td>{{$volunteer->name}}</td>
                                                 <td>{{$volunteer->phone}}</td>
                                                 <td>{{$volunteer->status}}</td>
-                                                @for ($i = 01; $i <= 31; $i++)
-                                                   
-                                                    <td>{{ $contribution ? $contribution->$i : '' }}</td>
+                                                @for ($i = 1; $i <= 31; $i++)
+                                                    @php
+                                                        $day = str_pad($i, 2, '0', STR_PAD_LEFT);
+                                                    @endphp
+                                                    <td>{{ $contribution ? $contribution->$day : '' }}</td>
                                                 @endfor
                                                 
                                                 <td>{{ $contribution ? $contribution->total : '0' }}</td>
