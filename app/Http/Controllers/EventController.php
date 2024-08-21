@@ -173,7 +173,7 @@ class EventController extends Controller
 
     
  
-        return view('event.contributions',[
+        return view('events.contributions',[
             'volunteers' => $volunteers,
       
         ]);
