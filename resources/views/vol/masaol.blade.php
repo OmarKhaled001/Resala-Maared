@@ -79,7 +79,7 @@
                                                     @php
                                                         $day = str_pad($i, 2, '0', STR_PAD_LEFT);
                                                     @endphp
-                                                    <td>{{$day}}</td>
+                                                    <td>{{ $contribution ? $contribution->$day : '' }}</td>
                                                 @endfor
                                                 
                                                 <td>{{ $contribution ? $contribution->total : '0' }}</td>
