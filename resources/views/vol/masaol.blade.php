@@ -1,4 +1,13 @@
+<?php
+           use App\Models\Contribution;
 
+$contribution = Contribution::where('volunteer_id',$volunteer->id)
+->where('year', $y)
+->where('month', $m)
+->get()
+->first();
+dd($contribution);
+?>
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-layout="vertical" data-sidebar="dark" data-sidebar-size="lg" data-preloader="disable" data-theme="default" data-bs-theme="light" data-topbar="light">
 <title>الاحداث</title>
@@ -66,16 +75,7 @@
                                     <tbody>
                                         @if (count($volunteers)>0)
                                             @foreach ($volunteers as $volunteer)
-                                            @php
-                                            use App\Models\Contribution;
-
-                                            $contribution = Contribution::where('volunteer_id',$volunteer->id)
-                                            ->where('year', $y)
-                                            ->where('month', $m)
-                                            ->get()
-                                            ->first();
-                                            dd($contribution);
-                                             @endphp
+                                          
                                             <tr>
                                                 <td>{{$volunteer->id}}</td>
                                                 <td>{{$volunteer->name}}</td>
