@@ -352,9 +352,9 @@ class EventResource extends Resource
                 
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\DeleteAction::make(),
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make()->label('مشاهدة'),
+                Tables\Actions\DeleteAction::make()->label('حذف'),
+                Tables\Actions\EditAction::make()->label('تعديل'),
 
             ])
             ->bulkActions([
