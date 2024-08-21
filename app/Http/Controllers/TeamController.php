@@ -7,6 +7,7 @@ use App\Models\History;
 use App\Models\Volunteer;
 use App\Models\Contribution;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TeamController extends Controller
 {
@@ -33,24 +34,22 @@ class TeamController extends Controller
                         $contribution->year = $year;
                         $contribution->month = $month;
                         $contribution->$day = 1;
+                        $contribution->total = DB::raw('1' + '2' + '3' + '4' + '5' + '6' + '7' + '8' + '9' + '10' + '11' + '12' + '13' + '14' + '15' + '16' + '17' + '18' + '19' + '20' + '21' + '22' + '23' + '24' + '25' + '26' + '27' + '28' + '29' + '30'+ '31');
                         $contribution->save();
-                        $total += 1;
                     }else{
                         $contribution = new Contribution;
                         $contribution->volunteer_id =$volunteer->id;
                         $contribution->year = $year;
                         $contribution->month = $month;
                         $contribution->$day = 1;
+                        $contribution->total = DB::raw('1' + '2' + '3' + '4' + '5' + '6' + '7' + '8' + '9' + '10' + '11' + '12' + '13' + '14' + '15' + '16' + '17' + '18' + '19' + '20' + '21' + '22' + '23' + '24' + '25' + '26' + '27' + '28' + '29' + '30'+ '31');
                         $contribution->save();
-                        $total += 1;
                     }
             
                     }
 
-                    $contribution->total = $total;
-                    $contribution->save();
 
-                }
+            }
         }
     
         
