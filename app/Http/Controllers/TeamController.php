@@ -24,6 +24,7 @@ class TeamController extends Controller
                         $month = Carbon::create($event->date)->format('m');
                         $year= Carbon::create($event->date)->format('Y');
                         $contribution = new Contribution;
+                        $contribution->volunteer_id =$volunteer->id;
                         $contribution->year = $year;
                         $contribution->month = $month;
                         $contribution->$day = 1;
