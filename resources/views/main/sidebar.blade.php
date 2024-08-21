@@ -59,6 +59,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link menu-link {{Request::url() == route('events.week5')? 'active': ''}}" href="{{route("events.week5")}}">الاسبوع الخامس</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link menu-link {{Request::url() == route('events.contribution')? 'active': ''}}" href="{{route("events.contribution")}}">شيت المتابعة</a>
+                                </li>
                                
                             </ul>
                         </div>
@@ -97,9 +100,7 @@
                             فريق العمل</a>
                         <div class="collapse menu-dropdown" id="team">
                             <ul class="nav nav-sm flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link menu-link {{Request::url() == route('team.masaol')? 'active': ''}}" href="{{route("team.masaol")}}">مسئول</a>
-                                </li>
+                               
                                 {{-- <li class="nav-item">
                                     <a class="nav-link menu-link {{Request::url() == route('events.maared')? 'active': ''}}" href="{{route("events.maared")}}">المعارض</a>
                                 </li>
