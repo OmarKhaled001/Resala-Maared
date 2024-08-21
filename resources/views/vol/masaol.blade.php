@@ -6,6 +6,8 @@
     @include('main.meta')
 </head>
 @php
+use Carbon\Carbon;
+
          $month = Carbon::now()->month->format('m');
          $year = Carbon::now()->year->format('Y');
 @endphp
