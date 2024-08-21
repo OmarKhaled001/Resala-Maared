@@ -68,7 +68,7 @@
                                             @foreach ($volunteers as $volunteer)
                                             @php
                                             // Get the contributions for the current volunteer
-                                            $contribution = $volunteer->contributions->where('year', $y)->where('month', $m)->first();
+                                            $contribution = $volunteer->contributions->where('year',$y)->where('month',$m)->first();
                                              @endphp
                                             <tr>
                                                 <td>{{$volunteer->id}}</td>
