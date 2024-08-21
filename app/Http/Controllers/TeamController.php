@@ -33,7 +33,7 @@ class TeamController extends Controller
                         $contribution->year = $year;
                         $contribution->month = $month;
                         $contribution->$day = 1;
-                        return response($contribution->$day);
+                        return response($day);
                         $contribution->save();
                         $total += 1;
                     }else{
