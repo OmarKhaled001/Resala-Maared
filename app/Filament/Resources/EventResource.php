@@ -23,6 +23,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
+use Guava\Calendar\Actions\CreateAction;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TimePicker;
 use Filament\Tables\Filters\SelectFilter;
@@ -276,7 +277,41 @@ class EventResource extends Resource
             ])
             ->description('مسؤول عنها لجنة المعارض')
             ->collapsed()->hidden(fn () => !auth()->user()->hasRole('maared')),
-           
+            CreateAction::make()
+            ->after(function () {
+                 // Fetch all volunteers
+        $volunteers = Volunteer::all();
+        
+        foreach ($volunteers as $volunteer) {
+            if ($volunteer->events->isNotEmpty()) {
+                // Get all contributions
+                foreach ($volunteer->events as $event) {
+                    $day = Carbon::create($event->date)->format('d');
+                    $month = Carbon::create($event->date)->format('m');
+                    $year = Carbon::create($event->date)->format('Y');
+
+                    // Find or create a Contribution record
+                    $contribution = Contribution::where('volunteer_id', $volunteer->id)
+                        ->where('year', $year)
+                        ->where('month', $month)
+                        ->first();
+
+                    if ($contribution) {
+                        $contribution->$day = 1; // Update the specific day
+                        $contribution->save();
+                    } else {
+                        $contribution = new Contribution;
+                        $contribution->volunteer_id = $volunteer->id;
+                        $contribution->year = $year;
+                        $contribution->month = $month;
+                        $contribution->$day = 1; // Set the specific day
+                        $contribution->save();
+                    }
+                }
+            }
+        }
+            })
+                
                 
 
             ]);
@@ -357,43 +392,7 @@ class EventResource extends Resource
             ]);
     }
 
-    public static function afterCreate($record): void
-    {
-        $volunteers = Volunteer::all();
-        
-        foreach( $volunteers as $volunteer){
-            if($volunteer->events != null){
-                // get all contribution
-                $total = 0;
-                foreach ($volunteer->events as $event) {
-                    $day = Carbon::create($event->date)->format('d');
-                    $month = Carbon::create($event->date)->format('m');
-                    $year= Carbon::create($event->date)->format('Y');
-                    $contribution = Contribution::where('volunteer_id',$volunteer->id)
-                    ->where('year', $year)
-                    ->where('month', $month)
-                    ->get()
-                    ->first();
-                    if($contribution != null){
-                        $contribution->year = $year;
-                        $contribution->month = $month;
-                        $contribution->$day = 1;
-                        $contribution->save();
-                    }else{
-                        $contribution = new Contribution;
-                        $contribution->volunteer_id =$volunteer->id;
-                        $contribution->year = $year;
-                        $contribution->month = $month;
-                        $contribution->$day = 1;
-                        $contribution->save();
-                    }
-            
-                    }
-
-
-            }
-        }
-    }
+   
 
     public static function getRelations(): array
     {
