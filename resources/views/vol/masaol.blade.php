@@ -24,7 +24,7 @@
                             </div>
                             <div class="card-body">
                                 <div >
-                                    <table id="buttons-datatables" class="table buttons nowrap align-middle text-center" style="width:100%">
+                                    <table id="buttons-datatables" class="table buttons nowrap align-middle text-center w-100" style="width:100%">
                                       <thead>
                                         <tr>
                                             <th>#</th>
@@ -70,14 +70,7 @@
                                         @if (count($volunteers)>0)
                                             @foreach ($volunteers as $volunteer)
                                             @php
-                                            
-
-                                            $contribution = Contribution::where('volunteer_id',$volunteer->id)
-                                            ->where('year',$y)
-                                            ->where('month',$m)
-                                            ->get()
-                                            ->first();
-                                            dd($contribution);
+                                             $contribution = $volunteer->contributions->first();
                                              @endphp
                                             <tr>
                                                 <td>{{$volunteer->id}}</td>
