@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignId('event_id')->nullable()
             ->references('id')
             ->on('events')
-            ->onDelete('set null');
+            ->cascadeOnDelete();
             
             $table->timestamps();
         });
