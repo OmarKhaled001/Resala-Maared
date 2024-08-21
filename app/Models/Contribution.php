@@ -16,4 +16,11 @@ class Contribution extends Model
         return LogOptions::defaults();
     }
     protected $guarded = [];
+
+    
+    public function volunteer(){
+
+        return $this->belongsTo(Volunteer::class); 
+        
+    }
 }

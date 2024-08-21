@@ -42,12 +42,11 @@
                                                 <td>{{$volunteer->status}}</td>
                                                 <td>
                                                     @foreach ($volunteer->categories as $category)
-                                                    {{$category->name}} ,
+                                                    {{$category->name}} 
                                                     @endforeach
                                                 </td>
-                                                <td>
-                                                   
-                                                </td>
+                                                <td>{{$volunteer->contributions->total}}</td>
+                                               
                                             
                                                                                                 
                                             </tr>

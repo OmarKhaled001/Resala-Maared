@@ -46,6 +46,13 @@ class Volunteer extends Model implements HasMedia
         
     }
     
+    public function contributions(){
+
+        return $this->hasMany(Contribution::class ); 
+
+        
+    }
+    
 
     
     public function getActivitylogOptions(): LogOptions
