@@ -24,9 +24,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $masaolVolunteers = Volunteer::where('status','مسئول')->with('contributions')->get();
-        $mmasaolVolunteers = Volunteer::where('status','مسئول')->with('contributions')->get();
-       
+        $currentYear = now()->year;
+        $currentMonth = now()->month;
+        $masaolVolunteers = Volunteer::where('status','مسئول')->with(['contributions' => function ($query) use ($currentYear, $currentMonth) {
+            $query->where('year', $currentYear)->where('month', $currentMonth);
+        }])->get();
+        $mmasaolVolunteers = Volunteer::where('status','مشروع مسئول')->with(['contributions' => function ($query) use ($currentYear, $currentMonth) {
+            $query->where('year', $currentYear)->where('month', $currentMonth);
+        }])->get();
+
         return view('index',compact('masaolVolunteers','mmasaolVolunteers'));
     }
 }
