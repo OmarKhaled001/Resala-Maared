@@ -20,7 +20,7 @@
                                     <div class="card border-bottom border-3 card-animate border-primary">
                                         <div class="card-body">
                                             <span class="badge bg-success-subtle text-success float-end">{{$masaolVolunteers->count()}} + {{$mmasaolVolunteers->count()}}</span>
-                                            <h4 class="mb-4"><span class="counter-value" data-target="{{$team->count()}}">0</span></h4>
+                                            <h4 class="mb-4"><span class="counter-value" data-target="{{$masaolVolunteers->count() + $mmasaolVolunteers->count()}}">0</span></h4>
                             
                                             <p class="text-muted fw-medium text-uppercase mb-0">اجمالي فريق العمل</p>
                                         </div>
