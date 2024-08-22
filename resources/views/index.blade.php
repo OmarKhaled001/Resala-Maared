@@ -26,16 +26,7 @@
                                         </div>
                                     </div>
                                 </div><!--end col-->
-                                <div class="col">
-                                    <div class="card border-bottom border-3 card-animate card-secondary border-secondary">
-                                        <div class="card-body">
-                                            <span class="badge bg-success-subtle text-success float-end"><i class="ph-trend-up align-middle me-1"></i> 20.8%</span>
-                                            <h4 class="mb-4 text-reset"><span class="counter-value" data-target="5963">5,963</span></h4>
-                            
-                                            <p class="text-white text-opacity-50 fw-medium text-uppercase mb-0">New Orders</p>
-                                        </div>
-                                    </div>
-                                </div><!--end col-->
+                          
                                 <div class="col">
                                     <div class="card border-bottom border-3 card-animate border-warning">
                                         <div class="card-body">
@@ -56,17 +47,8 @@
                                         </div>
                                     </div>
                                 </div><!--end col-->
-                                <div class="col">
-                                    <div class="card border-bottom border-3 card-animate border-danger">
-                                        <div class="card-body">
-                                            <span class="badge bg-danger-subtle text-danger float-end"><i class="ph-trend-down align-middle me-1"></i> 7.1%</span>
-                                            <h4 class="mb-4"><span class="counter-value" data-target="2314">2,314</span></h4>
-                            
-                                            <p class="text-muted fw-medium text-uppercase mb-0">Cancelled Orders</p>
-                                        </div>
-                                    </div>
-                                </div><!--end col-->
-                            </div>                        </div>
+                           
+                        </div>
                     
                     </div>
                 </div>
