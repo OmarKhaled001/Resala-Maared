@@ -37,10 +37,10 @@
                                 <div class="col">
                                     <div class="card border-bottom border-3 card-animate border-primary">
                                         <div class="card-body">
-                                            <span class="badge bg-success-subtle text-success float-end"><i class="ph-trend-up align-middle me-1"></i> 3.8%</span>
-                                            <h4 class="mb-4"><span class="counter-value" data-target="21438">21,438</span></h4>
+                                            <span class="badge bg-success-subtle text-success float-end">{{$masaolVolunteers->count()}} + {{$mmasaolVolunteers->count()}}</span>
+                                            <h4 class="mb-4"><span class="counter-value" data-target="{{$team->count()}}">0</span></h4>
                             
-                                            <p class="text-muted fw-medium text-uppercase mb-0">اجمالي الاحداث</p>
+                                            <p class="text-muted fw-medium text-uppercase mb-0">اجمالي العمل</p>
                                         </div>
                                     </div>
                                 </div><!--end col-->
