@@ -17,6 +17,17 @@
                           
                             <div class="row row-cols-xxl-5 row-cols-lg-3 row-cols-md-2 row-cols-1">
                                 <div class="col">
+                                    <div class="card border-bottom border-3 card-animate border-primary">
+                                        <div class="card-body">
+                                            <span class="badge bg-success-subtle text-success float-end">{{$masaolVolunteers->count()}} + {{$mmasaolVolunteers->count()}}</span>
+                                            <h4 class="mb-4"><span class="counter-value" data-target="{{$team->count()}}">0</span></h4>
+                            
+                                            <p class="text-muted fw-medium text-uppercase mb-0">اجمالي فريق العمل</p>
+                                        </div>
+                                    </div>
+                                </div><!--end col-->
+                          
+                                <div class="col">
                                     <div class="card border-bottom border-3 card-animate border-success">
                                         <div class="card-body">
                                             <span class="badge bg-success-subtle text-success float-end">{{ $mtotalContributionsCount}} / {{$masaolVolunteers->count()}}</span>
@@ -34,17 +45,7 @@
                                         </div>
                                     </div>
                                 </div><!--end col-->
-                                <div class="col">
-                                    <div class="card border-bottom border-3 card-animate border-primary">
-                                        <div class="card-body">
-                                            <span class="badge bg-success-subtle text-success float-end">{{$masaolVolunteers->count()}} + {{$mmasaolVolunteers->count()}}</span>
-                                            <h4 class="mb-4"><span class="counter-value" data-target="{{$team->count()}}">0</span></h4>
-                            
-                                            <p class="text-muted fw-medium text-uppercase mb-0">اجمالي العمل</p>
-                                        </div>
-                                    </div>
-                                </div><!--end col-->
-                          
+                              
                                 <div class="col">
                                     <div class="card border-bottom border-3 card-animate border-warning">
                                         <div class="card-body">
