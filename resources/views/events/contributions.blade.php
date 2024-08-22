@@ -69,12 +69,9 @@
                                     <tbody>
                                         @if (count($volunteers)>0 )
                                         @foreach ($volunteers as $volunteer)
-                                        @php  $total = 0; @endphp
+                                        
                                             @if (count($volunteer->contributions)>0)
-                                                
-                                            @php
-                                             $contribution = $volunteer->contributions->first();
-                                             @endphp
+                                     
                                             <tr>
                                                 <td>{{$volunteer->id}}</td>
                                                 <td>{{$volunteer->name}}</td>
@@ -85,14 +82,11 @@
                                                         $day = str_pad($i, 2, '0', STR_PAD_LEFT);
                                                     @endphp
                                                     <td>
-                                                        @if ($contribution->$day != null)
-                                                            @php  $total += 1; @endphp
-                                                        @endif
                                                         {{ $contribution ? $contribution->$day : '' }}
                                                     </td>
                                                 @endfor
                                                 
-                                                <td>{{ $total ? $total : '0' }}</td>
+                                                <td>{{ $contribution->total  }}</td>
                                                 
                                                     
                                                
