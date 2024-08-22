@@ -39,7 +39,7 @@
                                 <div class="col">
                                     <div class="card border-bottom border-3 card-animate border-success">
                                         <div class="card-body">
-                                            <span class="badge bg-success-subtle text-success float-end">{{ $mmtotalContributionsCount}} / {{$mmasaolVolunteers->count()}}</span>
+                                            <span class="badge {{$mmtotalContributionsCount < $mmasaolVolunteers->count() ? 'bg-danger-subtle' : 'bg-success-subtle'}}bg-success-subtle text-success float-end">{{ $mmtotalContributionsCount}} / {{$mmasaolVolunteers->count()}}</span>
                                             <h4 class="mb-4"><span class="counter-value" data-target="{{round($mmtotalSum/$mmasaolVolunteers->count(), 2) }}">0</span> /8</h4>
                                             <p class="text-muted fw-medium text-uppercase mb-0">متوسط مشاركات مشروع مسؤول</p>
                                         </div>
