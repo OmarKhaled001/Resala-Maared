@@ -159,6 +159,18 @@ class VolunteerResource extends Resource
                 ])->label('التصنيف')
                 ->placeholder('اختر التصنيف')
                 ->multiple(),
+                SelectFilter::make('type')
+                ->options([
+                    '6' => 'مش نازل',
+                    '0' => 'مغلق',
+                    '1' => 'مش مكمل معنا',
+                    '2' => 'مكمل معنا',
+                    '3' => 'مبيردش',
+                    '4' => 'احتمال',
+                    '5' => 'اكيد',
+                ])->label('التاكيدات')
+                ->placeholder('اختر الحالة')
+                ->multiple(),
                 SelectFilter::make('gender')
                 ->options([
                     '1' => 'ذكر',
