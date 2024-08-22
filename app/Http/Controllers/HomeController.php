@@ -78,10 +78,9 @@ class HomeController extends Controller
                 }
             }else{
                 $contribution = $volunteer->contributions->first();
-                    if($contribution != null){
-                        $contribution->delete() ;
-
-                    }
+                if ($contribution) {
+                    $contribution->delete();
+                }
                 
 
             }
