@@ -40,8 +40,8 @@
                                 <div class="col">
                                     <div class="card border-bottom border-3 card-animate border-success">
                                         <div class="card-body">
-                                            <span class="badge bg-success-subtle text-success float-end"><i class="ph-trend-up align-middle me-1"></i> 18.7%</span>
-                                            <h4 class="mb-4"><span class="counter-value" data-target="8541">8,541</span></h4>
+                                            <span class="badge bg-success-subtle text-success float-end">{{$mmasaolVolunteers->count()}}</span>
+                                            <h4 class="mb-4"><span class="counter-value" data-target="{{$mmasaolVolunteers->count()}}">8,541</span></h4>
                             
                                             <p class="text-muted fw-medium text-uppercase mb-0">متوسط مشاركات مسؤول</p>
                                         </div>
