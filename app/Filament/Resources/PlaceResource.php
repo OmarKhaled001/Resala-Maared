@@ -96,6 +96,7 @@ class PlaceResource extends Resource
                 ->columnSpan([
                     'xl' => 4,
                 ]),
+           
 
             ])
             
