@@ -118,6 +118,7 @@ class HomeController extends Controller
             'mtotalSum',
             'mmtotalContributionsCount',
             'mmtotalSum',
+            'team',
         ));
     }
 }
