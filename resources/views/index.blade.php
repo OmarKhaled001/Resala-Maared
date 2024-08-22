@@ -28,7 +28,7 @@
                                 </div><!--end col-->
                           
                                 <div class="col">
-                                    <div class="card border-bottom border-3 card-animate border-success">
+                                    <div class="card border-bottom border-3 card-animate {{$mtotalContributionsCount < $masaolVolunteers->count() ? 'border-danger' : 'border-success'}}">
                                         <div class="card-body">
                                             <span class="badge bg-success-subtle text-success float-end">{{ $mtotalContributionsCount}} / {{$masaolVolunteers->count()}}</span>
                                             <h4 class="mb-4"><span class="counter-value" data-target="{{round($mtotalSum/$masaolVolunteers->count(), 2) }}">0</span> /8</h4>
