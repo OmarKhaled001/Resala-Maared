@@ -139,7 +139,7 @@ class EventController extends Controller
         }])->get();
        
         foreach( $volunteers as $volunteer){
-            $total = 0;
+            
             if($volunteer->events != null){
                 // get all contribution
                 foreach ($volunteer->events as $event) {
@@ -161,23 +161,23 @@ class EventController extends Controller
                         $contribution->volunteer_id =$volunteer->id;
                         $contribution->year = $year;
                         $contribution->month = $month;
-                        $contribution->total = $total;
                         $contribution->$day = 1;
                         $contribution->save();
                     }
                 }
             }
             if (count($volunteer->contributions)>0){
-
+                $total = 0;
                 $contribution = $volunteer->contributions->first();
                 for ($i = 1; $i <= 31; $i++){
     
                     $day = str_pad($i, 2, '0', STR_PAD_LEFT);
                     if ($contribution->$day != null){
-                       $contribution->total += 1; 
+                       $total += 1; 
                     }
-    
                 }
+                $contribution->total = $total; 
+
                 $contribution->save();
             }
 
