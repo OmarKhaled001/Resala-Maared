@@ -42,8 +42,20 @@ class PlaceResource extends Resource
                 ->required()
                 ->columnSpan(2),
 
+                TextInput::make('Governorate')
+                ->label('المحافظة')
+                ->placeholder('ادخل اسم المحافظة')
+                ->required()
+                ->columnSpan(2),
+
                 TextInput::make('area')
-                ->label('اسم القرية')
+                ->label('المركز')
+                ->placeholder('ادخل اسم المركز')
+                ->required()
+                ->columnSpan(2),
+
+                TextInput::make('village')
+                ->label('القرية')
                 ->placeholder('ادخل اسم القرية')
                 ->required()
                 ->columnSpan(2),
@@ -101,8 +113,18 @@ class PlaceResource extends Resource
                 ->searchable()
                 ->copyable()
                 ->sortable(),
+                TextColumn::make('governorate')
+                ->label('المحافظة')
+                ->searchable()
+                ->copyable()
+                ->sortable(),
                 TextColumn::make('area')
-                ->label('الاسم')
+                ->label('المركز')
+                ->searchable()
+                ->copyable()
+                ->sortable(),
+                TextColumn::make('village')
+                ->label('القرية')
                 ->searchable()
                 ->copyable()
                 ->sortable(),
