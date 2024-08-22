@@ -16,6 +16,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DatePicker;
+use Filament\Tables\Columns\SelectColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Tables\Actions\BulkActionGroup;
@@ -112,6 +113,19 @@ class VolunteerResource extends Resource
                     'خارج المتابعة' => 'danger',
                 })
                 ->sortable(),
+                 
+                SelectColumn::make('type')
+                ->searchable()
+                ->sortable()
+                ->options([
+                    '6' => 'مش نازل',
+                    '0' => 'مغلق',
+                    '1' => 'مش مكمل معنا',
+                    '2' => 'مكمل معنا',
+                    '3' => 'مبيردش',
+                    '4' => 'احتمال',
+                    '5' => 'اكيد',
+                ]),
                 TextColumn::make('age')
                 ->label('العمر')
                 ->toggleable(isToggledHiddenByDefault: true)
