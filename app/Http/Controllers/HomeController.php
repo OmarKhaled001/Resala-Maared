@@ -26,12 +26,16 @@ class HomeController extends Controller
     {
         $currentYear = now()->year;
         $currentMonth = now()->month;
-        $masaolVolunteers = Volunteer::where('status','مسئول')->with(['contributions' => function ($query) use ($currentYear, $currentMonth) {
+        $masaolVolunteers = Volunteer::where('status','مسئول')->withCount(['contributions','contributions as contributions_count' => function ($query) use ($currentYear, $currentMonth) {
             $query->where('year', $currentYear)->where('month', $currentMonth);
         }])->get();
-        $mmasaolVolunteers = Volunteer::where('status','مشروع مسئول')->with(['contributions' => function ($query) use ($currentYear, $currentMonth) {
+        $mmasaolVolunteers = Volunteer::where('status','مشروع مسئول')->withCount(['contributions','contributions as contributions_count' => function ($query) use ($currentYear, $currentMonth) {
             $query->where('year', $currentYear)->where('month', $currentMonth);
         }])->get();
+        foreach ($masaolVolunteers as $volunteer) {
+
+            # code...
+        }
 
             
         return view('index',compact('masaolVolunteers','mmasaolVolunteers'));
