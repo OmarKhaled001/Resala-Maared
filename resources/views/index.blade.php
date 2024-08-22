@@ -22,7 +22,7 @@
                                             <span class="badge bg-success-subtle text-success float-end"><i class="ph-trend-up align-middle me-1"></i> 3.8%</span>
                                             <h4 class="mb-4"><span class="counter-value" data-target="21438">21,438</span></h4>
                             
-                                            <p class="text-muted fw-medium text-uppercase mb-0">Total Orders</p>
+                                            <p class="text-muted fw-medium text-uppercase mb-0">اجمالي الاحداث</p>
                                         </div>
                                     </div>
                                 </div><!--end col-->
@@ -33,7 +33,7 @@
                                             <span class="badge bg-success-subtle text-success float-end"><i class="ph-trend-up align-middle me-1"></i> 12.6%</span>
                                             <h4 class="mb-4"><span class="counter-value" data-target="4620">4,620</span></h4>
                             
-                                            <p class="text-muted fw-medium text-uppercase mb-0">Pending Orders</p>
+                                            <p class="text-muted fw-medium text-uppercase mb-0">اجمالي المشاركات بدون تكرار</p>
                                         </div>
                                     </div>
                                 </div><!--end col-->
@@ -43,7 +43,17 @@
                                             <span class="badge bg-success-subtle text-success float-end"><i class="ph-trend-up align-middle me-1"></i> 18.7%</span>
                                             <h4 class="mb-4"><span class="counter-value" data-target="8541">8,541</span></h4>
                             
-                                            <p class="text-muted fw-medium text-uppercase mb-0">Delivered Orders</p>
+                                            <p class="text-muted fw-medium text-uppercase mb-0">متوسط مشاركات مسؤول</p>
+                                        </div>
+                                    </div>
+                                </div><!--end col-->
+                                <div class="col">
+                                    <div class="card border-bottom border-3 card-animate border-success">
+                                        <div class="card-body">
+                                            <span class="badge bg-success-subtle text-success float-end"><i class="ph-trend-up align-middle me-1"></i> 18.7%</span>
+                                            <h4 class="mb-4"><span class="counter-value" data-target="8541">8,541</span></h4>
+                            
+                                            <p class="text-muted fw-medium text-uppercase mb-0">متوسط مشاركات مشروع مسؤول</p>
                                         </div>
                                     </div>
                                 </div><!--end col-->
