@@ -26,18 +26,39 @@ class HomeController extends Controller
     {
         $currentYear = now()->year;
         $currentMonth = now()->month;
-        $masaolVolunteers = Volunteer::withCount(['contributions','contributions as contributions_count' => function ($query) use ($currentYear, $currentMonth) {
+        $masaolVolunteers = Volunteer::where('status','مسئول')->with(['contributions' => function ($query) use ($currentYear, $currentMonth) {
             $query->where('year', $currentYear)->where('month', $currentMonth);
         }])->get();
-        $mmasaolVolunteers = Volunteer::where('status','مشروع مسئول')->withCount(['contributions','contributions as contributions_count' => function ($query) use ($currentYear, $currentMonth) {
-            $query->where('year', $currentYear)->where('month', $currentMonth);
-        }])->get();
-        foreach ($masaolVolunteers as $volunteer) {
+        $mtotalContributionsCount = 0;
+        $mtotalSum = 0;
 
-            # code...
+        foreach ($masaolVolunteers as $volunteer) {
+            $contributions = $volunteer->contributions;
+            $mtotalContributionsCount += $contributions->count();
+            $mtotalSum += $contributions->sum('total');
         }
+        $mmasaolVolunteers = Volunteer::where('status','مشروع مسئول')->with(['contributions' => function ($query) use ($currentYear, $currentMonth) {
+            $query->where('year', $currentYear)->where('month', $currentMonth);
+        }])->get();
+
+        $mmtotalContributionsCount = 0;
+        $mmtotalSum = 0;
+
+        foreach ($mmasaolVolunteers as $volunteer) {
+            $contributions = $volunteer->contributions;
+            $mmtotalContributionsCount += $contributions->count();
+            $mmtotalSum += $contributions->sum('total');
+        }
+      
 
             
-        return view('index',compact('masaolVolunteers','mmasaolVolunteers'));
+        return view('index',compact(
+            'masaolVolunteers',
+            'mmasaolVolunteers',
+            'mtotalContributionsCount',
+            'mtotalSum',
+            'mmtotalContributionsCount',
+            'mmtotalSum',
+        ));
     }
 }
