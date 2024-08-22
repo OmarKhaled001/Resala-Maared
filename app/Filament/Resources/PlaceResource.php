@@ -130,14 +130,16 @@ class PlaceResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make()->label('مشاهدة'),
+                Tables\Actions\DeleteAction::make()->label('حذف'),
+                Tables\Actions\EditAction::make()->label('تعديل'),
             ])
             ->bulkActions([
                 ExportBulkAction::make(),
 
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make()->label('حذف الكل'),
-                ]),
+                ])->label('العمليات'),
 
             ]);
     }
