@@ -41,7 +41,7 @@
                                     <div class="card border-bottom border-3 card-animate border-success">
                                         <div class="card-body">
                                             <span class="badge bg-success-subtle text-success float-end">{{$masaolVolunteers->count()}}/{{ $mtotalContributionsCount}}</span>
-                                            <h4 class="mb-4"><span class="counter-value" data-target="{{($mtotalSum/$masaolVolunteers->count())->round($number, 2) }}">0 /8</span></h4>
+                                            <h4 class="mb-4"><span class="counter-value" data-target="{{round($mtotalSum/$masaolVolunteers->count(), 2) }}">0 /8</span></h4>
                             
                                             <p class="text-muted fw-medium text-uppercase mb-0">متوسط مشاركات مسؤول</p>
                                         </div>
