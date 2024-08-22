@@ -85,13 +85,13 @@
                                                         $day = str_pad($i, 2, '0', STR_PAD_LEFT);
                                                     @endphp
                                                     <td>
-                                                        @if ($contribution != null)
-                                                            @php  $total += 1; @endphp
-                                                            {{ $contribution ? $contribution->$day : '' }}
-                                                        @endif
+                                                        {{ $contribution ? $contribution->$day : '' }}
                                                     </td>
-                                                @endfor
-                                                
+                                                    @endfor
+                                                    
+                                                    @if ($contribution != null)
+                                                        @php  $total += 1; @endphp
+                                                    @endif
                                                 <td>{{ $total ? $total : '0' }}</td>
                                                 
                                                     
