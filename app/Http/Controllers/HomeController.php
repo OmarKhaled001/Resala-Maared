@@ -33,6 +33,7 @@ class HomeController extends Controller
             $query->where('year', $currentYear)->where('month', $currentMonth);
         }])->get();
 
+            
         return view('index',compact('masaolVolunteers','mmasaolVolunteers'));
     }
 }
