@@ -94,6 +94,7 @@ class HomeController extends Controller
             $mtotalContributionsCount += $contributions->count();
             $mtotalSum += $contributions->sum('total');
         }
+        
         $mmasaolVolunteers = Volunteer::where('status','مشروع مسئول')->with(['contributions' => function ($query) use ($currentYear, $currentMonth) {
             $query->where('year', $currentYear)->where('month', $currentMonth);
         }])->get();
