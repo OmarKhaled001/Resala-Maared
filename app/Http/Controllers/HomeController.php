@@ -77,13 +77,7 @@ class HomeController extends Controller
                     $contribution->save();
                 }
             }else{
-                $month = Carbon::create($currentMonth)->format('m');
-                $year= Carbon::create($currentYear)->format('Y');
-                $contribution = Contribution::where('volunteer_id',$volunteer->id)
-                    ->where('year', $year)
-                    ->where('month', $month)
-                    ->get()
-                    ->first();
+                $contribution = $volunteer->contributions->first();
                     if($contribution != null){
                         $contribution->delete() ;
 
