@@ -101,7 +101,7 @@ class DriverResource extends Resource
                 ExportBulkAction::make(),
 
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()->label('حذف الكل'),
                 ]),
             ]);
     }
