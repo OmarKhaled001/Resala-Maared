@@ -79,6 +79,8 @@ class HomeController extends Controller
             }else{
                 $contribution = $volunteer->contributions->first();
                 if ($contribution) {
+                    dd($contribution); // Check what is returned here
+
                     $contribution->delete();
                 }
                 
