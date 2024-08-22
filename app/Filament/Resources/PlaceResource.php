@@ -118,11 +118,13 @@ class PlaceResource extends Resource
                 ->label('المحافظة')
                 ->searchable()
                 ->copyable()
+                ->toggleable(isToggledHiddenByDefault: true)
                 ->sortable(),
                 TextColumn::make('area')
                 ->label('المركز')
                 ->searchable()
                 ->copyable()
+                ->toggleable(isToggledHiddenByDefault: true)
                 ->sortable(),
                 TextColumn::make('village')
                 ->label('القرية')
@@ -130,11 +132,11 @@ class PlaceResource extends Resource
                 ->copyable()
                 ->sortable(),
                 TextColumn::make('administrator_name')
-                ->label('رقم الهاتف')
+                ->label('اسم الدليل')
                 ->searchable()
                 ->copyable(),
                 TextColumn::make('administrator_phone')
-                ->label('رقم الرخصة')
+                ->label('رقم الهاتف')
                 ->searchable()
                 ->copyable(),
                 TextColumn::make('location')

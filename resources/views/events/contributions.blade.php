@@ -4,7 +4,7 @@
 ?>
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-layout="vertical" data-sidebar="dark" data-sidebar-size="lg" data-preloader="disable" data-theme="default" data-bs-theme="light" data-topbar="light">
-<title>الاحداث</title>
+<title>شيت التابعة الشهري</title>
 <meta content="Minimal Admin & dashboard Template" name="description">
     @include('main.meta')
 </head>
@@ -68,6 +68,7 @@
                                     </thead>
                                     <tbody>
                                         @if (count($volunteers)>0 )
+                                            @php  $total = 0; @endphp
                                             @foreach ($volunteers as $volunteer)
                                             @if (count($volunteer->contributions)>0)
                                                 
@@ -83,10 +84,15 @@
                                                     @php
                                                         $day = str_pad($i, 2, '0', STR_PAD_LEFT);
                                                     @endphp
-                                                    <td>{{ $contribution ? $contribution->$day : '' }}</td>
+                                                    <td>
+                                                        @if ($contribution != null)
+                                                            @php  $total += 1; @endphp
+                                                            {{ $contribution ? $contribution->$day : '' }}
+                                                        @endif
+                                                    </td>
                                                 @endfor
                                                 
-                                                <td>{{ $contribution ? $contribution->total : '0' }}</td>
+                                                <td>{{ $total ? $total : '0' }}</td>
                                                 
                                                     
                                                
