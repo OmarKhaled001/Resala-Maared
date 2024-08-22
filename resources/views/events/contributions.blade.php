@@ -68,8 +68,8 @@
                                     </thead>
                                     <tbody>
                                         @if (count($volunteers)>0 )
-                                            @php  $total = 0; @endphp
-                                            @foreach ($volunteers as $volunteer)
+                                        @foreach ($volunteers as $volunteer)
+                                        @php  $total = 0; @endphp
                                             @if (count($volunteer->contributions)>0)
                                                 
                                             @php
