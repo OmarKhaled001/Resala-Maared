@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Volunteer;
 use App\Models\Contribution;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -35,10 +36,13 @@ class HomeController extends Controller
         }])->get();
        
         foreach( $volunteers as $volunteer){
-            
-            if($volunteer->events != null){
+            $events = Event::where('volunteer_id',$volunteer->id)
+            ->where('year', $currentYear)
+                    ->where('month', $currentMonth)
+                    ->get();
+            if($events != null){
                 // get all contribution
-                foreach ($volunteer->events as $event) {
+                foreach ($events as $event) {
                     $day = Carbon::create($event->date)->format('d');
                     $month = Carbon::create($event->date)->format('m');
                     $year= Carbon::create($event->date)->format('Y');
@@ -61,21 +65,36 @@ class HomeController extends Controller
                         $contribution->save();
                     }
                 }
-            }
-            if (count($volunteer->contributions)>0){
-                $total = 0;
-                $contribution = $volunteer->contributions->first();
-                for ($i = 1; $i <= 31; $i++){
-    
-                    $day = str_pad($i, 2, '0', STR_PAD_LEFT);
-                    if ($contribution->$day != null){
-                       $total += 1; 
+                if (count($volunteer->contributions)>0){
+                    $total = 0;
+                    $contribution = $volunteer->contributions->first();
+                    for ($i = 1; $i <= 31; $i++){
+        
+                        $day = str_pad($i, 2, '0', STR_PAD_LEFT);
+                        if ($contribution->$day != null){
+                           $total += 1; 
+                        }
                     }
+                    $contribution->total = $total; 
+    
+                    $contribution->save();
                 }
-                $contribution->total = $total; 
+            }else{
+                $month = Carbon::create($currentMonth)->format('m');
+                $year= Carbon::create($currentYear)->format('Y');
+                $contribution = Contribution::where('volunteer_id',$volunteer->id)
+                    ->where('year', $year)
+                    ->where('month', $month)
+                    ->get()
+                    ->first();
+                    if($contribution != null){
+                        $contribution->delete() ;
 
-                $contribution->save();
+                    }
+                
+
             }
+
 
         }
 
