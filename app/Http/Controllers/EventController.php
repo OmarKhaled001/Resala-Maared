@@ -167,16 +167,19 @@ class EventController extends Controller
                     }
                 }
             }
-            $contribution = $volunteer->contributions->first();
-            for ($i = 1; $i <= 31; $i++){
+            if (count($volunteer->contributions)>0){
 
-                $day = str_pad($i, 2, '0', STR_PAD_LEFT);
-                if ($contribution->$day != null){
-                   $contribution->total += 1; 
+                $contribution = $volunteer->contributions->first();
+                for ($i = 1; $i <= 31; $i++){
+    
+                    $day = str_pad($i, 2, '0', STR_PAD_LEFT);
+                    if ($contribution->$day != null){
+                       $contribution->total += 1; 
+                    }
+    
                 }
-
+                $contribution->save();
             }
-            $contribution->save();
 
         }
 
