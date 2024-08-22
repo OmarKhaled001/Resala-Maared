@@ -115,8 +115,10 @@ class VolunteerResource extends Resource
                 ->sortable(),
                  
                 SelectColumn::make('type')
+                ->label('التاكيدات')
                 ->searchable()
                 ->sortable()
+                ->placeholder('اختر الحالة')
                 ->options([
                     '6' => 'مش نازل',
                     '0' => 'مغلق',
