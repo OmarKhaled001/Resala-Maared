@@ -139,14 +139,9 @@ class EventController extends Controller
         }])->get();
        
         foreach( $volunteers as $volunteer){
+            $total = 0;
             if($volunteer->events != null){
                 // get all contribution
-                $total = 0;
-               
-
-
-          
-         
                 foreach ($volunteer->events as $event) {
                     $day = Carbon::create($event->date)->format('d');
                     $month = Carbon::create($event->date)->format('m');
@@ -160,29 +155,28 @@ class EventController extends Controller
                         $contribution->year = $year;
                         $contribution->month = $month;
                         $contribution->$day = 1;
-                       
-                        $contribution->total = $contribution->column1 + $contribution->column2 + $contribution->column3 ;
                         $contribution->save();
                     }else{
                         $contribution = new Contribution;
                         $contribution->volunteer_id =$volunteer->id;
                         $contribution->year = $year;
                         $contribution->month = $month;
-                        $total+=1;
                         $contribution->total = $total;
                         $contribution->$day = 1;
                         $contribution->save();
-            
                     }
-
-                   
-            
                 }
-              
-             
+            }
+            for ($i = 1; $i <= 31; $i++){
 
+                $day = str_pad($i, 2, '0', STR_PAD_LEFT);
+                if ($contribution->$day != null){
+                   $contribution->total += 1; 
+                }
 
             }
+            $contribution->save();
+
         }
 
     
@@ -194,7 +188,8 @@ class EventController extends Controller
 
     }
 
-
+    
 
   
 }
+
