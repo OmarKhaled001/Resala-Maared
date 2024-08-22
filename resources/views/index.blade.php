@@ -17,6 +17,24 @@
                           
                             <div class="row row-cols-xxl-5 row-cols-lg-3 row-cols-md-2 row-cols-1">
                                 <div class="col">
+                                    <div class="card border-bottom border-3 card-animate border-success">
+                                        <div class="card-body">
+                                            <span class="badge bg-success-subtle text-success float-end">{{$masaolVolunteers->count()}}/{{ $mtotalContributionsCount}}</span>
+                                            <h4 class="mb-4"><span class="counter-value" data-target="{{round($mtotalSum/$masaolVolunteers->count(), 2) }}">0</span> /8</h4>
+                                            <p class="text-muted fw-medium text-uppercase mb-0">متوسط مشاركات مسؤول</p>
+                                        </div>
+                                    </div>
+                                </div><!--end col-->
+                                <div class="col">
+                                    <div class="card border-bottom border-3 card-animate border-success">
+                                        <div class="card-body">
+                                            <span class="badge bg-success-subtle text-success float-end">{{$mmasaolVolunteers->count()}}/{{ $mmtotalContributionsCount}}</span>
+                                            <h4 class="mb-4"><span class="counter-value" data-target="{{round($mmtotalSum/$mmasaolVolunteers->count(), 2) }}">0</span> /8</h4>
+                                            <p class="text-muted fw-medium text-uppercase mb-0">متوسط مشاركات مشروع مسؤول</p>
+                                        </div>
+                                    </div>
+                                </div><!--end col-->
+                                <div class="col">
                                     <div class="card border-bottom border-3 card-animate border-primary">
                                         <div class="card-body">
                                             <span class="badge bg-success-subtle text-success float-end"><i class="ph-trend-up align-middle me-1"></i> 3.8%</span>
@@ -37,16 +55,7 @@
                                         </div>
                                     </div>
                                 </div><!--end col-->
-                                <div class="col">
-                                    <div class="card border-bottom border-3 card-animate border-success">
-                                        <div class="card-body">
-                                            <span class="badge bg-success-subtle text-success float-end">{{$masaolVolunteers->count()}}/{{ $mtotalContributionsCount}}</span>
-                                            <h4 class="mb-4"><span class="counter-value" data-target="{{round($mtotalSum/$masaolVolunteers->count(), 2) }}">0</span> /8</h4>
                             
-                                            <p class="text-muted fw-medium text-uppercase mb-0">متوسط مشاركات مسؤول</p>
-                                        </div>
-                                    </div>
-                                </div><!--end col-->
                                 <div class="col">
                                     <div class="card border-bottom border-3 card-animate border-success">
                                         <div class="card-body">
