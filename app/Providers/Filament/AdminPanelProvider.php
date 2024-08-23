@@ -56,7 +56,7 @@ class AdminPanelProvider extends PanelProvider
                 DispatchServingFilamentEvent::class,
             ])
              ->plugin(\BezhanSalleh\FilamentShield\FilamentShieldPlugin::make())
-            // ->plugin(\TomatoPHP\FilamentUsers\FilamentUsersPlugin::make())
+             ->plugin(\TomatoPHP\FilamentUsers\FilamentUsersPlugin::make())
              ->plugin(ActivitylogPlugin::make())
 
             ->authMiddleware([
