@@ -30,7 +30,6 @@ class HomeController extends Controller
         
         $currentYear = now()->year;
         $currentMonth = now()->month;
-        $contributions = Contribution::where('year', $currentYear)->where('month', $currentMonth)->get();
         $volunteers = Volunteer::with(['contributions' => function ($query) use ($currentYear, $currentMonth) {
             $query->where('year', $currentYear)->where('month', $currentMonth);
         }])->get();
@@ -117,6 +116,7 @@ class HomeController extends Controller
             $mmtotalSum += $contributions->sum('total');
         }
       
+        $contributions = Contribution::where('year', $currentYear)->where('month', $currentMonth)->get();
 
             
         return view('index',compact(
