@@ -117,9 +117,25 @@ class HomeController extends Controller
         }
       
         $contributions = Contribution::where('year', $currentYear)->where('month', $currentMonth)->get();
+        
+        $currentMonth = Carbon::now()->month;
 
+
+        $events = Event::whereMonth('date', $currentMonth)
+        ->orderBy('date', 'asc')->get();
+
+        
+        $eventSum = 0;
+        foreach ($event as $event) {
+            foreach ($events->volunteers as $volunteer) {
+                $eventSum += 1;
+            }
+        }
+      
             
         return view('index',compact(
+            'eventSum',
+            'events',
             'contributions',
             'masaolVolunteers',
             'mmasaolVolunteers',

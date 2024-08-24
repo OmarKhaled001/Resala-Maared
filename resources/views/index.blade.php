@@ -49,6 +49,17 @@
                                 <div class="col">
                                     <div class="card border-bottom border-3 card-animate border-warning">
                                         <div class="card-body">
+                                            <span class="badge bg-success-subtle text-success float-end">{{$events->volunteers->count()}}</span>
+
+                                            <h4 class="mb-4"><span class="counter-value" data-target="{{$events->count()}}">{{$events->count()}}</span></h4>
+                            
+                                            <p class="text-muted fw-medium text-uppercase mb-0">اجمالي  الاحداث </p>
+                                        </div>
+                                    </div>
+                                </div><!--end col-->
+                                <div class="col">
+                                    <div class="card border-bottom border-3 card-animate border-warning">
+                                        <div class="card-body">
                                             <h4 class="mb-4"><span class="counter-value" data-target="{{$contributions->sum('total')}}">{{$contributions->sum('total')}}</span></h4>
                             
                                             <p class="text-muted fw-medium text-uppercase mb-0">اجمالي المشاركات بدون تكرار</p>
@@ -57,7 +68,7 @@
                                 </div><!--end col-->
                             
                                 <div class="col">
-                                    <div class="card border-bottom border-3 card-animate border-success">
+                                    <div class="card border-bottom border-3 card-animate border-warning">
                                         <div class="card-body">
                                             <h4 class="mb-4"><span class="counter-value" data-target="{{$contributions->count()}}">0</span></h4>
                             
