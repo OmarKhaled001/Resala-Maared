@@ -56,7 +56,7 @@ class AdminPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
-            ->plugin(\BezhanSalleh\FilamentShield\FilamentShieldPlugin::make())
+            ->plugin(\BezhanSalleh\FilamentShield\FilamentShieldPlugin::make()->hasRole('Super Admin'))
             ->plugin(\TomatoPHP\FilamentUsers\FilamentUsersPlugin::make())
             ->plugin(ActivitylogPlugin::make())
 
