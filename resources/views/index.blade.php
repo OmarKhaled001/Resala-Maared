@@ -49,7 +49,6 @@
                                 <div class="col">
                                     <div class="card border-bottom border-3 card-animate border-warning">
                                         <div class="card-body">
-                                            <span class="badge bg-success-subtle text-success float-end"><i class="ph-trend-up align-middle me-1"></i> 12.6%</span>
                                             <h4 class="mb-4"><span class="counter-value" data-target="{{$contributions->sum('total')}}">{{$contributions->sum('total')}}</span></h4>
                             
                                             <p class="text-muted fw-medium text-uppercase mb-0">اجمالي المشاركات بدون تكرار</p>
@@ -60,10 +59,9 @@
                                 <div class="col">
                                     <div class="card border-bottom border-3 card-animate border-success">
                                         <div class="card-body">
-                                            <span class="badge bg-success-subtle text-success float-end">{{$mmasaolVolunteers->count()}}</span>
-                                            <h4 class="mb-4"><span class="counter-value" data-target="8541">8,541</span></h4>
+                                            <h4 class="mb-4"><span class="counter-value" data-target="{{$contributions->count()}}">0</span></h4>
                             
-                                            <p class="text-muted fw-medium text-uppercase mb-0">متوسط مشاركات مشروع مسؤول</p>
+                                            <p class="text-muted fw-medium text-uppercase mb-0">اجمالي ألمتطوعين بدون تكرار</p>
                                         </div>
                                     </div>
                                 </div><!--end col-->
