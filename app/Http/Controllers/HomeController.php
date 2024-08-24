@@ -127,7 +127,7 @@ class HomeController extends Controller
         
         $eventSum = 0;
         foreach ($events as $event) {
-            foreach ($events->volunteers as $volunteer) {
+            foreach ($event->volunteers as $volunteer) {
                 $eventSum += 1;
             }
         }
