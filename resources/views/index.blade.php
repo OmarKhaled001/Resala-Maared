@@ -49,7 +49,7 @@
                                 <div class="col">
                                     <div class="card border-bottom border-3 card-animate border-warning">
                                         <div class="card-body">
-                                            <span class="badge bg-success-subtle text-success float-end">{{$events->volunteers->count()}}</span>
+                                            <span class="badge bg-success-subtle text-success float-end">{{$eventSum}}</span>
 
                                             <h4 class="mb-4"><span class="counter-value" data-target="{{$events->count()}}">{{$events->count()}}</span></h4>
                             
