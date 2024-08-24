@@ -37,11 +37,11 @@
                                             @foreach ($events as $event)
                                             <tr>
                                                 <td>{{$event->date}}</td>
-                                                <td>{{$event->category->name}}</td>
-                                                <td>{{$event->meeting_head}}</td>
-                                                <td>{{$event->meeting_position}}</td>
-                                                <td>{{$event->volunteers->count()}}</td>
-                                                <td>{{$event->meeting_goals}}</td>
+                                                <td>{{$event->category->name ?? ''}}</td>
+                                                <td>{{$event->meeting_head ?? ''}}</td>
+                                                <td>{{$event->meeting_position ?? ''}}</td>
+                                                <td>{{$event->volunteers->count() ?? ''}}</td>
+                                                <td>{{$event->meeting_goals ?? ''}}</td>
                                                 <td>{{$event->type}}</td>
                                                 
                                         

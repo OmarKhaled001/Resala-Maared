@@ -40,13 +40,13 @@
                                             @foreach ($events as $event)
                                             <tr>
                                                 <td>{{$event->date}}</td>
-                                                <td>{{$event->maared_type}}</td>
-                                                <td>{{$event->place->name}}</td>
-                                                <td>{{$event->volunteers->count()}}</td>
-                                                <td>{{$event->tshirt}}</td>
-                                                <td>{{$event->amount}}</td>
-                                                <td>{{$event->expenses}}</td>
-                                                <td>{{$event->pay_date}}</td>
+                                                <td>{{$event->maared_type ?? ''}}</td>
+                                                <td>{{$event->place->name ?? ''}}</td>
+                                                <td>{{$event->volunteers->count() ?? ''}}</td>
+                                                <td>{{$event->tshirt ?? ''}}</td>
+                                                <td>{{$event->amount ?? ''}}</td>
+                                                <td>{{$event->expenses ?? ''}}</td>
+                                                <td>{{$event->pay_date ?? ''}}</td>
                                                 <td>
                                                 @if($event->getMedia('event_reseats')->first() !== null)
                                                 <a href="{{$event->getMedia('event_reseats')->first()->getUrl()}}" download>
