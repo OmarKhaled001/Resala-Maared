@@ -30,7 +30,7 @@ class HomeController extends Controller
         
         $currentYear = now()->year;
         $currentMonth = now()->month;
-    
+        $contributions = Contribution::where('year', $currentYear)->where('month', $currentMonth)->get();
         $volunteers = Volunteer::with(['contributions' => function ($query) use ($currentYear, $currentMonth) {
             $query->where('year', $currentYear)->where('month', $currentMonth);
         }])->get();
@@ -79,8 +79,6 @@ class HomeController extends Controller
             }else{
                 $contribution = $volunteer->contributions->first();
                 if ($contribution) {
-                    dd($contribution); // Check what is returned here
-
                     $contribution->delete();
                 }
                 
@@ -122,6 +120,7 @@ class HomeController extends Controller
 
             
         return view('index',compact(
+            'contributions',
             'masaolVolunteers',
             'mmasaolVolunteers',
             'mtotalContributionsCount',

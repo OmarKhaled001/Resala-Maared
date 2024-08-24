@@ -50,7 +50,7 @@
                                     <div class="card border-bottom border-3 card-animate border-warning">
                                         <div class="card-body">
                                             <span class="badge bg-success-subtle text-success float-end"><i class="ph-trend-up align-middle me-1"></i> 12.6%</span>
-                                            <h4 class="mb-4"><span class="counter-value" data-target="4620">4,620</span></h4>
+                                            <h4 class="mb-4"><span class="counter-value" data-target="{{$contributions->count()}}">0</span></h4>
                             
                                             <p class="text-muted fw-medium text-uppercase mb-0">اجمالي المشاركات بدون تكرار</p>
                                         </div>
