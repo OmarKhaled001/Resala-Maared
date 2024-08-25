@@ -41,6 +41,7 @@ Route::group(['middleware' => ['admin','auth']],function () {
     Route::get('master/events/etaam' ,[EventController::class,'eventsEtaam'])->name('events.etaam');
     Route::get('master/events/driver' ,[EventController::class,'eventsDriver'])->name('events.driver');
     Route::get('master/vol/masaol' ,[TeamController::class,'MasaolTeam'])->name('team.masaol');
+    Route::get('master/vol/mmasaol' ,[TeamController::class,'MmasaolTeam'])->name('team.mmasaol');
 });
 
 

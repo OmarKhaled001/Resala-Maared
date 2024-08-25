@@ -107,6 +107,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link menu-link {{Request::url() == route('team.masaol')? 'active': ''}}" href="{{route("team.masaol")}}">مسئول</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link menu-link {{Request::url() == route('team.mmasaol')? 'active': ''}}" href="{{route("team.mmasaol")}}">مشروع مسئول</a>
+                                </li>
                             
                                
                             </ul>
