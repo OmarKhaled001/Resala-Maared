@@ -20,7 +20,7 @@
                         <div class="col-lg-12">
                           <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">الاحداث</h4>
+                                <h4 class="card-title">شيت التابعة الشهري</h4>
                             </div>
                             <div class="card-body">
                                 <div >

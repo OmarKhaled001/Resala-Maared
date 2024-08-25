@@ -1,7 +1,7 @@
 
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-layout="vertical" data-sidebar="dark" data-sidebar-size="lg" data-preloader="disable" data-theme="default" data-bs-theme="light" data-topbar="light">
-<title>الاحداث</title>
+<title>الاجتماعات</title>
 <meta content="Minimal Admin & dashboard Template" name="description">
     @include('main.meta')
 </head>
@@ -16,7 +16,7 @@
                         <div class="col-lg-12">
                           <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">الاحداث</h4>
+                                <h4 class="card-title">الاجتماعات</h4>
                             </div>
                             <div class="card-body">
                                 <div >
