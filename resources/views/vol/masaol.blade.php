@@ -47,7 +47,7 @@
                                                 <td>{{$volunteer->name}}</td>
                                                 <td>{{$volunteer->phone}}</td>
                                                 <td>{{$volunteer->status}}</td>
-                                                <td class="{{$contribution->total = 6 ? 'table-success' : 'table-danger' }}">{{$contribution->total ?? '0'}}</td>
+                                                <td class="{{$contribution->total ?? $contribution->total = 0 ? 'table-danger' : ''}}">{{$contribution->total ?? '0'}}</td>
                                                 
                                             </tr>
                                           
