@@ -143,17 +143,15 @@ class EventController extends Controller
 
         $currentYear = now()->year;
         $currentMonth = now()->month;
-
-            
         $volunteers = Volunteer::with(['contributions' => function ($query) use ($currentYear, $currentMonth) {
             $query->where('year', $currentYear)->where('month', $currentMonth);
         }])->get();
        
         foreach( $volunteers as $volunteer){
-            
-            if($volunteer->events != null){
+            $events = $volunteer->events->where('year', $currentYear)->where('month', $currentMonth);
+            if($events != null){
                 // get all contribution
-                foreach ($volunteer->events as $event) {
+                foreach ($events as $event) {
                     $day = Carbon::create($event->date)->format('d');
                     $month = Carbon::create($event->date)->format('m');
                     $year= Carbon::create($event->date)->format('Y');
@@ -176,23 +174,32 @@ class EventController extends Controller
                         $contribution->save();
                     }
                 }
-            }
-            if (count($volunteer->contributions)>0){
-                $total = 0;
-                $contribution = $volunteer->contributions->first();
-                for ($i = 1; $i <= 31; $i++){
-    
-                    $day = str_pad($i, 2, '0', STR_PAD_LEFT);
-                    if ($contribution->$day != null){
-                       $total += 1; 
+                if (count($volunteer->contributions)>0){
+                    $total = 0;
+                    $contribution = $volunteer->contributions->first();
+                    for ($i = 1; $i <= 31; $i++){
+        
+                        $day = str_pad($i, 2, '0', STR_PAD_LEFT);
+                        if ($contribution->$day != null){
+                           $total += 1; 
+                        }
                     }
+                    $contribution->total = $total; 
+    
+                    $contribution->save();
                 }
-                $contribution->total = $total; 
+            }else{
+                $contribution = $volunteer->contributions->first();
+                if ($contribution) {
+                    $contribution->delete();
+                }
+                
 
-                $contribution->save();
             }
+
 
         }
+
 
     
  
