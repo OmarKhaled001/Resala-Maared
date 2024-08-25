@@ -39,13 +39,15 @@
                                         @if (count($volunteers)>0 )
                                             @foreach ($volunteers as $volunteer)
                                            
-
+                                            @php
+                                            $contribution = $volunteer->contributions->first();
+                                            @endphp
                                             <tr>
                                                 <td>{{$volunteer->id}}</td>
                                                 <td>{{$volunteer->name}}</td>
                                                 <td>{{$volunteer->phone}}</td>
                                                 <td>{{$volunteer->status}}</td>
-                                                <td>{{$volunteer->contributions->total ?? '0'}}</td>
+                                                <td>{{$contribution->total ?? '0'}}</td>
                                                 
                                             </tr>
                                           
