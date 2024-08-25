@@ -26,7 +26,7 @@ class TeamController extends Controller
         
     
  
-        return view('event.contributions',[
+        return view('vol.masaol',[
             'volunteers' => $volunteers,
       
         ]);
