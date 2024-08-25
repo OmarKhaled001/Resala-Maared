@@ -119,6 +119,7 @@ class VolunteerResource extends Resource
                 ->searchable()
                 ->sortable()
                 ->placeholder('اختر الحالة')
+                ->toggleable(isToggledHiddenByDefault: true)
                 ->options([
                     '6' => 'مش نازل',
                     '0' => 'مغلق',
@@ -170,6 +171,7 @@ class VolunteerResource extends Resource
                     '5' => 'اكيد',
                 ])->label('التاكيدات')
                 ->placeholder('اختر الحالة')
+                
                 ->multiple(),
                 SelectFilter::make('gender')
                 ->options([
