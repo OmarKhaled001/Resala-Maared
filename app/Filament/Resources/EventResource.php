@@ -296,6 +296,7 @@ class EventResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('date')
+                ->dateTime()
                 ->label('التاريخ'),
                
                 TextColumn::make('volunteers.name')
