@@ -45,9 +45,6 @@ class Event extends Model implements HasMedia
         return LogOptions::defaults();
     }
 
-    protected $casts = [
-        'date' => 'date',
-    ];
-
+ 
 
 }
