@@ -142,7 +142,9 @@ class EventController extends Controller
     public function contribution() {
 
         $currentYear = now()->year;
+        
         $currentMonth = now()->month;
+
         $volunteers = Volunteer::with(['contributions' => function ($query) use ($currentYear, $currentMonth) {
             $query->where('year', $currentYear)->where('month', $currentMonth);
         }])->get();
