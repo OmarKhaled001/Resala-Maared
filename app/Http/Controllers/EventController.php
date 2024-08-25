@@ -150,7 +150,7 @@ class EventController extends Controller
         }])->get();
        
         foreach( $volunteers as $volunteer){
-            $events = $volunteer->events->where('year', $currentYear)->where('month', $currentMonth);
+            $events = $volunteer->events->whereYear('date', $currentYear)->whereMonth('date', $currentMonth);
             if($events != null){
                 // get all contribution
                 foreach ($events as $event) {
