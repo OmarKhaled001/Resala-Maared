@@ -296,9 +296,11 @@ class EventResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('date')
+                ->sortable()
                 ->label('التاريخ'),
                
                 TextColumn::make('volunteers.name')
+                
                 ->label('الاسم')
        
                 ->listWithLineBreaks()
@@ -312,9 +314,11 @@ class EventResource extends Resource
                 ->expandableLimitedList(),
 
                 TextColumn::make('type')
+                ->sortable()
                 ->label('المشاركة'),
 
                 TextColumn::make('volunteers_count')
+                ->sortable()
                     ->counts('volunteers')
                 ->label('العدد'),
                 SpatieMediaLibraryImageColumn::make('event_scren')
