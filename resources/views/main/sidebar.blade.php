@@ -73,6 +73,9 @@
                         <div class="collapse menu-dropdown" id="events">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
+                                    <a class="nav-link menu-link {{Request::url() == route('events.driver')? 'active': ''}}" href="{{route("events.driver")}}">النقل</a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link menu-link {{Request::url() == route('events.meeting')? 'active': ''}}" href="{{route("events.meeting")}}">الاجتماعات</a>
                                 </li>
                                 <li class="nav-item">
