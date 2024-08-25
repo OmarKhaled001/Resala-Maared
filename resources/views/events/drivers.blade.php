@@ -24,12 +24,13 @@
                                       <thead>
                                         <tr>
                                             <th>التاريخ</th>
-                                            <th>اللجنة</th>
-                                            <th>هيد الاجتماع</th>
-                                            <th>دور هيد الاجتماع</th>
-                                            <th>عدد الحاضرين</th>
-                                            <th>الهدف من الاجتماع</th>
-                                            <th>مكان الاجتماع</th>
+                                            <th>نوع العربية</th>
+                                            <th>عدد المتطوعين</th>
+                                            <th>ميعاد الحضور</th>
+                                            <th>ميعاد الرجوع</th>
+                                            <th>اسم السائق</th>
+                                            <th>رخصة السائق</th>
+                                            <th>ملاحظات</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -37,14 +38,15 @@
                                             @foreach ($events as $event)
                                             <tr>
                                                 <td>{{$event->date}}</td>
-                                                <td>{{$event->category->name ?? ''}}</td>
-                                                <td>{{$event->meeting_head ?? ''}}</td>
+                                                <td>{{$event->car_type ?? ''}}</td>
+                                                <td>{{$event->volunteers->count() ?? ''}}</td>
                                                 <td>{{$event->meeting_position ?? ''}}</td>
                                                 <td>{{$event->volunteers->count() ?? ''}}</td>
-                                                <td>{{$event->meeting_goals ?? ''}}</td>
-                                                <td>{{$event->type}}</td>
-                                                
-                                        
+                                                <td>{{$event->arrived_at ?? ''}}</td>
+                                                <td>{{$event->back_at ?? ''}}</td>
+                                                <td>{{$event->driver->name ?? ''}}</td>
+                                                <td>{{$event->driver->back_at ?? ''}}</td>
+                                                <td>{{$event->notes}}</td>
                                                 
                                             </tr>
                                             
