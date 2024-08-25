@@ -60,6 +60,7 @@ class EventResource extends Resource
                     'xl' => 2,
                 ])->schema([
                     DatePicker::make('date')
+                    ->format('d/m/Y')
                         ->label('تاريخ الحدث')
                         
                     ->required(),
@@ -296,7 +297,6 @@ class EventResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('date')
-                ->dateTime()
                 ->label('التاريخ'),
                
                 TextColumn::make('volunteers.name')
