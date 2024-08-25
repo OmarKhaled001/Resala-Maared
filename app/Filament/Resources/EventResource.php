@@ -171,13 +171,13 @@ class EventResource extends Resource
             Section::make('بيانات الحدث الاوف لاين')
             ->schema([
                 Select::make('maared_type')
-                        ->options([
-                            'رمزي'    => 'رمزي',
-                            'مجاني'    => 'مجاني',
-                            'مميز'    => 'مميز',
-                        ])->label('نوع المعرض')
-                        ->placeholder('اختر نوع المعرض')
-                        ->columnSpan(1),
+                ->options([
+                    'رمزي'    => 'رمزي',
+                    'مجاني'    => 'مجاني',
+                    'مميز'    => 'مميز',
+                ])->label('نوع المعرض')
+                ->placeholder('اختر نوع المعرض')
+                ->columnSpan(2),
 
                 Select::make('place_id')
                 ->createOptionForm([
@@ -209,10 +209,19 @@ class EventResource extends Resource
                 ->placeholder('اختر اسم المكان')
                 ->searchable(['name', 'administrator_name'])
                 ->preload(),
+                Select::make('car_type')
+                ->options([
+                    'ميكروباص'    => 'ميكروباص',
+                    'كوستر'    => 'كوستر',
+                    'ربع نقل'    => 'ربع نقل',
+                    'جامبو'    => 'جامبو',
+                ])->label('نوع العربية')
+                ->placeholder('اختر نوع العربية')
+                ->columnSpan(2),
 
             Select::make('driver_id')
                 ->createOptionForm([
-                    TextInput::make('name')
+                TextInput::make('name')
                         ->label('الاسم')
                         ->placeholder('ادخل اسم السائق')
                         ->required(),
@@ -264,12 +273,7 @@ class EventResource extends Resource
                     'md' => 3,
                     'xl' => 3,
                 ]),
-                Textarea::make('notes')
-                    ->label('الملاحظات') ->columnSpan([
-                        'sm' => 1,
-                        'md' => 3,
-                        'xl' => 3,
-                    ]),
+           
             ])
             ->columns([
                 'sm' => 1,
