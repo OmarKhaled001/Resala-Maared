@@ -35,7 +35,9 @@ class HomeController extends Controller
         }])->get();
        
         foreach( $volunteers as $volunteer){
-            $events = $volunteer->events->whereYear('date', $currentYear)->whereMonth('date', $currentMonth);
+            $events = $volunteer->events->filter(function ($event) use ($currentMonth, $currentYear) {
+                return $event->date->year == $currentYear && $event->date->month == $currentMonth;
+            });
             if($events != null){
                 // get all contribution
                 foreach ($events as $event) {
