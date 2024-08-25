@@ -111,6 +111,20 @@ class EventController extends Controller
             'events' => $events,
         ]);
     }
+    public function eventsDriver ()
+    {
+        
+        $currentMonth = Carbon::now()->month;
+
+
+        $events = Event::whereMonth('date', $currentMonth)
+        ->whereNotNull('driver_id')
+        ->orderBy('date', 'asc')->get();
+
+        return view('events.drivers',[
+            'events' => $events,
+        ]);
+    }
     public function eventsMaared ()
     {
         

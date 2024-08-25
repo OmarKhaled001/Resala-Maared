@@ -39,6 +39,7 @@ Route::group(['middleware' => ['admin','auth']],function () {
     Route::get('master/events/meetings' ,[EventController::class,'eventsMeeting'])->name('events.meeting');
     Route::get('master/events/maared' ,[EventController::class,'eventsMaared'])->name('events.maared');
     Route::get('master/events/etaam' ,[EventController::class,'eventsEtaam'])->name('events.etaam');
+    Route::get('master/events/driver' ,[EventController::class,'eventsDriver'])->name('events.driver');
     Route::get('master/vol/masaol' ,[TeamController::class,'MasaolTeam'])->name('team.masaol');
 });
 
