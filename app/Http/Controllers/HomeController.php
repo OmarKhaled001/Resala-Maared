@@ -30,6 +30,7 @@ class HomeController extends Controller
         
         $currentYear = now()->year;
         $currentMonth = now()->month;
+        return response([ $currentYear, $currentMonth]);
         $volunteers = Volunteer::with(['contributions' => function ($query) use ($currentYear, $currentMonth) {
             $query->where('year', $currentYear)->where('month', $currentMonth);
         }])->get();
