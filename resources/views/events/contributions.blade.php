@@ -66,7 +66,9 @@
                                        
                                         </tr>
                                     </thead>
-                                      <thead>
+                                    <tfoot>
+
+                                    </tfoot>
                                         <tr>
                                             <th>#</th>
                                             <th>الاسم</th>
@@ -106,7 +108,6 @@
                                             <th>اجمالي</th>
                                        
                                         </tr>
-                                    </thead>
                                     <tbody>
                                         @if (count($volunteers)>0 )
                                         @foreach ($volunteers as $volunteer)
