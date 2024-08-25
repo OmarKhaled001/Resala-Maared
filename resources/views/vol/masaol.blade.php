@@ -47,11 +47,7 @@
                                                 <td>{{$volunteer->name}}</td>
                                                 <td>{{$volunteer->phone}}</td>
                                                 <td>{{$volunteer->status}}</td>
-                                                <td class="
-                                                @if($contribution->total != null)
-                                                    {{ $contribution->total = 0 ? 'table-danger' : ''}}
-                                                @endif
-                                                ">{{$contribution->total ?? '0'}}</td>
+                                                <td>{{$contribution->total ?? '0'}}</td>
                                                 
                                             </tr>
                                           
