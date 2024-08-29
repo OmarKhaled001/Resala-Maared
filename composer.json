@@ -87,6 +87,10 @@
         {
             "url": "https://github.com/OmarKhaled001/resala-maared.git",
             "type": "git"
+        },
+        {
+            "type": "composer",
+            "url": "https://filament-theme-os-light.composer.sh"
         }
     ],
     "minimum-stability": "stable",

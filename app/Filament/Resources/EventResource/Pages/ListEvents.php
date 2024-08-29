@@ -13,7 +13,10 @@ class ListEvents extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make()->label('اضافة مشاركة'),
+            Actions\CreateAction::make()->label('اضافة مشاركة')
+            ->after(function () {
+               
+            }),
         ];
     }
 }
