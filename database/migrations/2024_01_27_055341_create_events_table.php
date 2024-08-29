@@ -13,8 +13,19 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->date('date');
-            $table->string('type');
+            $table->foreignId('branche_id')
+            ->nullable()
+            ->references('id')
+            ->on('branches')
+            ->cascadeOnDelete();
+            $table->foreignId('section_id')
+            ->nullable()
+            ->references('id')
+            ->on('sections')
+            ->cascadeOnDelete();
+            $table->string('year');
+            $table->string('month');
+            $table->string('day');
             $table->boolean('tshirt')->nullable();
             $table->string('notes')->nullable();
             $table->string('meeting_head')->nullable();

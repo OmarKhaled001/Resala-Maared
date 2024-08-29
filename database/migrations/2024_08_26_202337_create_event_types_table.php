@@ -11,11 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('event_types', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('category_id')
+            ->nullable()
+            ->references('id')
+            ->on('categories')
+            ->cascadeOnDelete();
             $table->string('name');
             $table->string('notes')->nullable();
-            $table->boolean('is_active')->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('event_types');
     }
 };

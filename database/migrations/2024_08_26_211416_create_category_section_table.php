@@ -11,25 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('category_section', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('branche_id')
-            ->nullable()
-            ->references('id')
-            ->on('branches')
-            ->cascadeOnDelete();
             $table->foreignId('section_id')
             ->nullable()
             ->references('id')
             ->on('sections')
             ->cascadeOnDelete();
-            $table->string('name');
-            $table->string('phone')->unique();
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->boolean('is_admin')->nullable();
+            $table->foreignId('category_id')
+            ->nullable()
+            ->references('id')
+            ->on('categories')
+            ->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -39,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('category_section');
     }
 };
