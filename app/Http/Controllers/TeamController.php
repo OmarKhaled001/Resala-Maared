@@ -13,7 +13,8 @@ class TeamController extends Controller
 {
     public function MasaolTeam() {
 
-        $currentYear = now()->year;
+
+     $currentYear = now()->year;
         
         $currentMonth = now()->month;
 
@@ -22,9 +23,7 @@ class TeamController extends Controller
         }])->get();
        
         foreach( $volunteers as $volunteer){
-            $events = $volunteer->events->filter(function ($event) use ($currentMonth, $currentYear) {
-                return $event->date->year == $currentYear && $event->date->month == $currentMonth;
-            });
+            $events = $volunteer->events;
                         if($events != null){
                 // get all contribution
                 foreach ($events as $event) {
@@ -75,9 +74,6 @@ class TeamController extends Controller
 
 
         }
-
-            
- 
 
             
  
@@ -98,7 +94,7 @@ class TeamController extends Controller
     public function MmasaolTeam() {
 
 
-     $currentYear = now()->year;
+        $currentYear = now()->year;
         
         $currentMonth = now()->month;
 
@@ -107,9 +103,7 @@ class TeamController extends Controller
         }])->get();
        
         foreach( $volunteers as $volunteer){
-            $events = $volunteer->events->filter(function ($event) use ($currentMonth, $currentYear) {
-                return $event->date->year == $currentYear && $event->date->month == $currentMonth;
-            });
+            $events = $volunteer->events;
                         if($events != null){
                 // get all contribution
                 foreach ($events as $event) {
@@ -160,8 +154,6 @@ class TeamController extends Controller
 
 
         }
-
-            
  
         $volunteers = Volunteer::with(['contributions' => function ($query) use ($currentYear, $currentMonth) {
             $query->where('year', $currentYear)->where('month', $currentMonth);
