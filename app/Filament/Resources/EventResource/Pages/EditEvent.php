@@ -16,4 +16,8 @@ class EditEvent extends EditRecord
             Actions\DeleteAction::make()->label('حذف'),
         ];
     }
+    public function getTitle(): string 
+    {
+        return 'تعديل حدث';
+    }
 }
