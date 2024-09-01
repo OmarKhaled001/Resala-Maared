@@ -189,9 +189,9 @@ class VolunteerResource extends Resource
                 ->preload()
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(false),
-                Tables\Actions\DeleteAction::make(false),
-                Tables\Actions\EditAction::make(false),
+                Tables\Actions\ViewAction::make()->label(false),
+                Tables\Actions\DeleteAction::make()->label(false),
+                Tables\Actions\EditAction::make()->label(false),
                 ])
             ->bulkActions([
                 ExportBulkAction::make(),
