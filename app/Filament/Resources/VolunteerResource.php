@@ -23,6 +23,7 @@ use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteBulkAction;
 use App\Filament\Resources\VolunteerResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use App\Filament\Resources\VolunteerResource\RelationManagers;
 use App\Filament\Resources\VolunteerResource\Pages\EditVolunteer;
@@ -188,11 +189,12 @@ class VolunteerResource extends Resource
                 ->preload()
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\DeleteAction::make(),
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make(false),
+                Tables\Actions\DeleteAction::make(false),
+                Tables\Actions\EditAction::make(false),
                 ])
             ->bulkActions([
+                ExportBulkAction::make(),
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
