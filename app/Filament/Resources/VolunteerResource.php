@@ -137,6 +137,9 @@ class VolunteerResource extends Resource
                 ->label('سنوات التطوع')
                 ->toggleable(isToggledHiddenByDefault: true)
                 ->sortable(),
+                TextColumn::make('voldate')
+                ->label('تاريخ التطوع')
+                ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('events_count')
                 ->counts('events')
                 ->label('العدد')
