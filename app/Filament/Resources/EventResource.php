@@ -70,12 +70,12 @@ class EventResource extends Resource
                                 ->label('الاسم')
                                 ->placeholder('ادخل اسم المتطوع')
                                 ->required()
-                                ->columnSpan(1),
+                                ,
                                 TextInput::make('phone')
                                 ->label('رقم الهاتف')
                                 ->placeholder('ادخل رقم المتطوع')
                                 ->required()
-                                ->columnSpan(1),
+                                ,
                                 Select::make('gender')
                                 ->options([
                                     '1' => 'ذكر',
@@ -133,38 +133,33 @@ class EventResource extends Resource
                 ->schema([
                     Textarea::make('notes')
                     ->label('الملاحظات')
-                    ->columnSpan(2),
+                    ,
                     SpatieMediaLibraryFileUpload::make('event_scren')
                     ->collection('event_screns')
                     ->multiple()
                     ->downloadable()
                     ->label('صورة الحدث')
                     ->downloadable()
-                    ->columnSpan(2),
+                    ,
             ]),
 
             Section::make('بيانات الاجتماع')
                 ->schema([
                     TextInput::make('meeting_head')
-                    ->label('مسؤول الاجتماع')
-                    ->columnSpan(1),
+                    ->label('مسؤول الاجتماع'),
                     TextInput::make('meeting_position')
                     ->label('دور مسؤول الاجتماع')
-                    ->columnSpan(1),
+                    ,
                     TextInput::make('meeting_goals')
                     ->label('هدف الاجتماع')
-                    ->columnSpan(1),
+                    ,
                     Select::make('category_id')
                     ->relationship('category','name')
                     ->label('أسم اللجنة')
+                    ->preload()
                     ->placeholder('اختر اللجنة')
                     ->searchable(['name']),
                     ])
-                    ->columns([
-                        'sm' => 1,
-                        'md' => 1,
-                        'xl' => 4,
-                ])
                 ->description('مسؤول عنه هيد الاجتماع    ')
             ->collapsed()->hidden(fn () => !auth()->user()->hasRole('Head')),
                 
@@ -177,7 +172,7 @@ class EventResource extends Resource
                     'مميز'    => 'مميز',
                 ])->label('نوع المعرض')
                 ->placeholder('اختر نوع المعرض')
-                ->columnSpan(2),
+                ,
 
                 Select::make('place_id')
                 ->createOptionForm([
@@ -185,24 +180,24 @@ class EventResource extends Resource
                         ->label('اسم المكان')
                         ->placeholder('ادخل اسم المكان')
                         ->required()
-                        ->columnSpan(1),
+                        ,
                         TextInput::make('administrator_name')
                         ->label('اسم الدليل')
                         ->placeholder('ادخل اسم الدليل')
                         ->required()
-                        ->columnSpan(1),
+                        ,
                         TextInput::make('administrator_phone')
                         ->label('رقم الهاتف')
                         ->placeholder('ادخل رقم السائق')
                         ->required()
-                        ->columnSpan(1),
+                        ,
                         Toggle::make('is_admin')
                         ->label('جمعية شرعية')
                         ->required()
-                        ->columnSpan(1),
+                        ,
                         Textarea::make('notes')
                         ->label('الملاحظات')
-                        ->columnSpan(1),                                
+                        ,                                
                 ])
                 ->relationship('place','name')
                 ->label('أسم المكان')
@@ -217,7 +212,7 @@ class EventResource extends Resource
                     'جامبو'    => 'جامبو',
                 ])->label('نوع العربية')
                 ->placeholder('اختر نوع العربية')
-                ->columnSpan(2),
+                ,
 
             Select::make('driver_id')
                 ->createOptionForm([
@@ -240,7 +235,7 @@ class EventResource extends Resource
                 ->placeholder('اختر اسم السائق')
                 ->searchable(['name', 'phone'])
                 ->preload()
-                ->columnSpan(1),
+                ,
             
             TimePicker::make('arrived_at')
             ->label('وقت الحضور'),
@@ -253,15 +248,15 @@ class EventResource extends Resource
             TextInput::make('amount')
             ->label('اجمالي مبلغ الايصال')
             ->placeholder('ادخل المبلغ  ')
-            ->columnSpan(1),
+            ,
             TextInput::make('expenses')
             ->label('اجمالي المصاريف')
             ->placeholder('ادخل المبلغ المصروف')
-            ->columnSpan(1),
+            ,
             DatePicker::make('pay_date')
             ->label(' تاريخ توريد الايصال')
             ->placeholder('ادخل تاريخ توريد')
-            ->columnSpan(1),
+            ,
             SpatieMediaLibraryFileUpload::make('event_reseat')
                 ->collection('event_reseats')
                 ->multiple()
