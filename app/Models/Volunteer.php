@@ -62,7 +62,7 @@ class Volunteer extends Model implements HasMedia
 
     
     protected $casts = [
-        'voldate' => 'dateTime',
+        'voldate' => 'date',
     ];
 
 }
