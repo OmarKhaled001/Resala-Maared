@@ -81,6 +81,7 @@ class VolunteerResource extends Resource
                         Textarea::make('address')
                         ->label('العنوان'),
                         Checkbox::make('camp_48')
+                        ->hidden(fn () => !auth()->user()->hasRole('hr'))
                         ->label('كامب 48'),
 
                     ])->columnSpan( ['sm' => 1,'lg' => 2,]),
