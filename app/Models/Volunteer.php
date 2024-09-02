@@ -59,4 +59,10 @@ class Volunteer extends Model implements HasMedia
     {
         return LogOptions::defaults();
     }
+
+    
+    protected $casts = [
+        'voldate' => 'dateTime',
+    ];
+
 }
