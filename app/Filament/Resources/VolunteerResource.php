@@ -104,28 +104,25 @@ class VolunteerResource extends Resource
                 ->searchable()
                 ->copyable(),
             
+                 
                 SelectColumn::make('status')
                 ->label('التصنيف')
                 ->searchable()
                 ->sortable()
                 ->placeholder('اختر التصنيف')
-                ->badge()
-                ->color(fn (string $state): string => match ($state) {
-                    'شبل' => 'warning',
-                    'داخل المتابعة' => 'warning',
-                    'مشروع مسئول' => 'success',
-                    'مسئول' => 'success',
-                    'خارج المتابعة' => 'danger',
-                })->hidden(fn () => !auth()->user()->hasRole('Head'))
-                ->sortable(),
+                ->hidden(fn () => !auth()->user()->hasRole('Head'))
+                ->options([
+                    'مسئول' => 'مسئول',
+                    'مشروع مسئول' => 'مشروع مسئول',
+                    'داخل المتابعة' => 'داخل المتابعة',
+                    'خارج المتابعة' => 'خارج المتابعة',
+                    'أشبال' => 'شبل',
+                ]),
                 TextColumn::make('age')
                 ->label('العمر')
                 ->toggleable(isToggledHiddenByDefault: true)
                 ->sortable(),
-                TextColumn::make('age')
-                ->label('سنوات التطوع')
-                ->toggleable(isToggledHiddenByDefault: true)
-                ->sortable(),
+            
                 TextColumn::make('voldate')
                 ->label('تاريخ التطوع')
                 ->searchable()
