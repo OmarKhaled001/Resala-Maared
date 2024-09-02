@@ -115,20 +115,18 @@ class VolunteerResource extends Resource
                 })
                 ->sortable(),
                  
-                SelectColumn::make('type')
-                ->label('التاكيدات')
+                SelectColumn::make('status')
+                ->label('التصنيف')
                 ->searchable()
                 ->sortable()
-                ->placeholder('اختر الحالة')
+                ->placeholder('اختر التصنيف')
                 ->toggleable(isToggledHiddenByDefault: true)
                 ->options([
-                    '6' => 'مش نازل',
-                    '0' => 'مغلق',
-                    '1' => 'مش مكمل معنا',
-                    '2' => 'مكمل معنا',
-                    '3' => 'مبيردش',
-                    '4' => 'احتمال',
-                    '5' => 'اكيد',
+                    'مسئول' => 'مسئول',
+                    'مشروع مسئول' => 'مشروع مسئول',
+                    'داخل المتابعة' => 'داخل المتابعة',
+                    'خارج المتابعة' => 'خارج المتابعة',
+                    'أشبال' => 'شبل',
                 ]),
                 TextColumn::make('age')
                 ->label('العمر')
@@ -141,7 +139,9 @@ class VolunteerResource extends Resource
                 TextColumn::make('voldate')
                 ->label('تاريخ التطوع')
                 ->searchable()
-                ->sortable(),
+                ->sortable()
+                ->toggleable(isToggledHiddenByDefault: true),
+
                 TextColumn::make('events_count')
                 ->counts('events')
                 ->label('العدد')
