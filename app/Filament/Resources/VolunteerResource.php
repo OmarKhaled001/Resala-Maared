@@ -180,10 +180,7 @@ class VolunteerResource extends Resource
                 
                 ])->label('النوع')
                 ->placeholder('اختر النوع'),
-                SelectFilter::make('voldate')
-                ->dateTime('M j, Y')
-                ->searchable()
-                ->preload()
+                
             ])
             ->actions([
                 Tables\Actions\ViewAction::make()->label(false),
