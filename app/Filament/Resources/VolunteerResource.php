@@ -80,7 +80,9 @@ class VolunteerResource extends Resource
                         ->label('الملاحظات'),
                         Textarea::make('address')
                         ->label('العنوان'),
-                      
+                        Checkbox::make('camp_48')
+                        ->label('كامب 48'),
+
                     ])->columnSpan( ['sm' => 1,'lg' => 2,]),
                     
                     Section::make('الوسائط')
