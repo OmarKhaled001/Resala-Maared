@@ -75,14 +75,19 @@ class VolunteerResource extends Resource
                     ])->columnSpan( ['sm' => 1,'lg' => 2,]),
                     Section::make('بيانات اضافية')
                     ->schema([
-                     
+                        TextInput::make('national')
+                        ->label('رقم القومي')
+                        ->placeholder('ادخل الرقم القومي')
+                        ->required()
+                        ->hidden(fn () => !auth()->user()->hasRole('hr'))
+                        ->columnSpan(1),
+                        Checkbox::make('camp_48')
+                        ->hidden(fn () => !auth()->user()->hasRole('hr'))
+                        ->label('كامب 48'),
                         Textarea::make('notes')
                         ->label('الملاحظات'),
                         Textarea::make('address')
                         ->label('العنوان'),
-                        Checkbox::make('camp_48')
-                        ->hidden(fn () => !auth()->user()->hasRole('hr'))
-                        ->label('كامب 48'),
 
                     ])->columnSpan( ['sm' => 1,'lg' => 2,]),
                     
@@ -92,6 +97,7 @@ class VolunteerResource extends Resource
                         ->collection('vol_reseats')
                         ->multiple()
                         ->downloadable()
+                        ->hidden(fn () => !auth()->user()->hasRole('hr'))
                         ->label('صورة إيصال ريسلاوي')
                         ->downloadable(),
                         SpatieMediaLibraryFileUpload::make('vol_pic')
@@ -99,6 +105,13 @@ class VolunteerResource extends Resource
                         ->multiple()
                         ->downloadable()
                         ->label('صور شخصية')
+                        ->downloadable(),
+                        SpatieMediaLibraryFileUpload::make('vol_national')
+                        ->collection('vol_nationals')
+                        ->multiple()
+                        ->hidden(fn () => !auth()->user()->hasRole('hr'))
+                        ->downloadable()
+                        ->label('صور البطاقة')
                         ->downloadable(),
                       
                     ])->columnSpanFull(),
