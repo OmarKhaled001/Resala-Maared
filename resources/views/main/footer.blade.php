@@ -2,11 +2,11 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6">
-                <script>document.write(new Date().getFullYear())</script> © Rora App.
+                <script>document.write(new Date().getFullYear())</script> © Resala App.
             </div>
             <div class="col-sm-6">
                 <div class="text-sm-end d-none d-sm-block">
-                    Design & Develop by Hossam X Studios
+                    Design & Develop by Omar Khaled
                 </div>
             </div>
         </div>

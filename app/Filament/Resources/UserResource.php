@@ -63,15 +63,15 @@ class UserResource extends Resource
                 ->email()
                 ->required()
                 ->label(trans('filament-users::user.resource.email')),
-            TextInput::make('password')
-                ->label(trans('filament-users::user.resource.password'))
-                ->password()
-                ->maxLength(255)
-                ->dehydrateStateUsing(static function ($state) use ($form) {
-                    return !empty($state)
-                            ? Hash::make($state)
-                            : User::find($form->getColumns())?->password;
-                }),
+            // TextInput::make('password')
+            //     ->label(trans('filament-users::user.resource.password'))
+            //     ->password()
+            //     ->maxLength(255)
+            //     ->dehydrateStateUsing(static function ($state) use ($form) {
+            //         return !empty($state)
+            //                 ? Hash::make($state)
+            //                 : User::find($form->getColumns())?->password;
+            //     }),
         ];
 
 
