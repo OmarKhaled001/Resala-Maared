@@ -82,6 +82,23 @@ class VolunteerResource extends Resource
                         ->label('العنوان'),
                       
                     ])->columnSpan( ['sm' => 1,'lg' => 2,]),
+                    
+                    Section::make('الوسائط')
+                    ->schema([
+                        SpatieMediaLibraryFileUpload::make('vol_reseat')
+                        ->collection('vol_reseats')
+                        ->multiple()
+                        ->downloadable()
+                        ->label('صورة إيصال ريسلاوي')
+                        ->downloadable(),
+                        SpatieMediaLibraryFileUpload::make('vol_pic')
+                        ->collection('vol_pics')
+                        ->multiple()
+                        ->downloadable()
+                        ->label('صور شخصية')
+                        ->downloadable(),
+                      
+                    ])->columnSpanFull(),
        
             ])->columns([
                 'sm' => 1,
@@ -125,20 +142,20 @@ class VolunteerResource extends Resource
             
                 TextColumn::make('voldate')
                 ->label('تاريخ التطوع')
+                ->dateTime('M j, Y')
                 ->searchable()
                 ->sortable()
                 ->toggleable(isToggledHiddenByDefault: true),
 
-                TextColumn::make('events_count')
-                ->counts('events')
-                ->label('العدد')
-                ->toggleable(isToggledHiddenByDefault: true),
+               
                 TextColumn::make('events.date')
+                ->dateTime('M j, Y')
                 ->label('المشاركات الاخيرة')
                 ->toggleable(isToggledHiddenByDefault: true)
                 ->listWithLineBreaks()
                 ->limitList(3)
                 ->copyable()
+                ->sortable()
                 ->expandableLimitedList(),
             ])
             ->filters([
@@ -152,19 +169,7 @@ class VolunteerResource extends Resource
                 ])->label('التصنيف')
                 ->placeholder('اختر التصنيف')
                 ->multiple(),
-                SelectFilter::make('type')
-                ->options([
-                    '6' => 'مش نازل',
-                    '0' => 'مغلق',
-                    '1' => 'مش مكمل معنا',
-                    '2' => 'مكمل معنا',
-                    '3' => 'مبيردش',
-                    '4' => 'احتمال',
-                    '5' => 'اكيد',
-                ])->label('التاكيدات')
-                ->placeholder('اختر الحالة')
                 
-                ->multiple(),
                 SelectFilter::make('gender')
                 ->options([
                     '1' => 'ذكر',
@@ -173,6 +178,7 @@ class VolunteerResource extends Resource
                 ])->label('النوع')
                 ->placeholder('اختر النوع'),
                 SelectFilter::make('voldate')
+                ->dateTime('M j, Y')
                 ->searchable()
                 ->preload()
             ])
