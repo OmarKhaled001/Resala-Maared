@@ -103,8 +103,12 @@ class VolunteerResource extends Resource
                 ->label('رقم الهاتف')
                 ->searchable()
                 ->copyable(),
-                TextColumn::make('status')
+            
+                SelectColumn::make('status')
                 ->label('التصنيف')
+                ->searchable()
+                ->sortable()
+                ->placeholder('اختر التصنيف')
                 ->badge()
                 ->color(fn (string $state): string => match ($state) {
                     'شبل' => 'warning',
@@ -112,22 +116,8 @@ class VolunteerResource extends Resource
                     'مشروع مسئول' => 'success',
                     'مسئول' => 'success',
                     'خارج المتابعة' => 'danger',
-                })
+                })->hidden(fn () => !auth()->user()->hasRole('Head'))
                 ->sortable(),
-                 
-                SelectColumn::make('status')
-                ->label('التصنيف')
-                ->searchable()
-                ->sortable()
-                ->placeholder('اختر التصنيف')
-                ->toggleable(isToggledHiddenByDefault: true)
-                ->options([
-                    'مسئول' => 'مسئول',
-                    'مشروع مسئول' => 'مشروع مسئول',
-                    'داخل المتابعة' => 'داخل المتابعة',
-                    'خارج المتابعة' => 'خارج المتابعة',
-                    'أشبال' => 'شبل',
-                ]),
                 TextColumn::make('age')
                 ->label('العمر')
                 ->toggleable(isToggledHiddenByDefault: true)
