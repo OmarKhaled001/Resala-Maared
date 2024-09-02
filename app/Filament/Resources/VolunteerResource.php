@@ -78,7 +78,7 @@ class VolunteerResource extends Resource
                         TextInput::make('national')
                         ->label('رقم القومي')
                         ->placeholder('ادخل الرقم القومي')
-                        ->required()
+                        
                         ->hidden(fn () => !auth()->user()->hasRole('hr'))
                         ->columnSpan(1),
                         Checkbox::make('camp_48')
