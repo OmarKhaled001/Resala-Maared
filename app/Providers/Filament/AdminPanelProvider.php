@@ -58,7 +58,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             // ->plugin(\BezhanSalleh\FilamentShield\FilamentShieldPlugin::make())
             // ->plugin(\TomatoPHP\FilamentUsers\FilamentUsersPlugin::make())
-            ->plugin(ActivitylogPlugin::make())
+            ->plugin(ActivitylogPlugin::make()->hidden(fn () => !auth()->user()->hasRole('hr')))
 
             ->authMiddleware([
                 Authenticate::class,
