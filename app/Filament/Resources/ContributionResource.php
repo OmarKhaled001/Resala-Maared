@@ -9,6 +9,7 @@ use Filament\Tables\Table;
 use App\Models\Contribution;
 use Filament\Resources\Resource;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\ContributionResource\Pages;
@@ -20,6 +21,11 @@ class ContributionResource extends Resource
     protected static ?string $model = Contribution::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    
+    protected static ?string $navigationGroup = 'المتطوعين';
+
+    protected static ?string $navigationLabel = 'المشاركات';
+    protected static ?string $pluralModelLabel  = 'المشاركات';
 
     public static function form(Form $form): Form
     {
@@ -56,7 +62,12 @@ class ContributionResource extends Resource
                 //
             ])
             ->filters([
-                //
+                SelectFilter::make('categories.name')
+                ->relationship('categories','name')
+                ->label('اللجنة')
+                ->placeholder('اختر اللجنة')
+                ->preload()
+                ->multiple(),
             ])
             ->actions([
                 // Tables\Actions\EditAction::make(),
