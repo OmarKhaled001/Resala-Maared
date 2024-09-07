@@ -40,14 +40,17 @@ class ContributionResource extends Resource
                 ->copyable()
                 ->sortable(),
                 TextColumn::make('volunteer.phone')
-                ->label('الاسم')
+                ->label('رقم الهاتف')
                 ->searchable()
                 ->copyable()
                 ->sortable(),
-                TextColumn::make('volunteer.category.name')
-                ->label('الاسم')
+                TextColumn::make('volunteer.categories.name')
+                ->label('اللجنة')
                 ->searchable()
                 ->copyable()
+                ->sortable(),
+                TextColumn::make('total')
+                ->label('الاجمالي')
                 ->sortable(),
                 //
             ])
