@@ -62,8 +62,8 @@ class ContributionResource extends Resource
                 //
             ])
             ->filters([
-                SelectFilter::make('categories.name')
-                ->relationship('categories','name')
+                SelectFilter::make('volunteer.categories.name')
+                ->relationship('volunteer.categories','name')
                 ->label('اللجنة')
                 ->placeholder('اختر اللجنة')
                 ->preload()
