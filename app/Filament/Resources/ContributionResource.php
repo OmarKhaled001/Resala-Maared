@@ -62,12 +62,12 @@ class ContributionResource extends Resource
                 //
             ])
             ->filters([
-                SelectFilter::make('volunteer.categories.name')
-                ->relationship('volunteer.categories','name')
-                ->label('اللجنة')
-                ->placeholder('اختر اللجنة')
-                ->preload()
-                ->multiple(),
+                // SelectFilter::make('volunteer.categories.name')
+                // ->relationship('volunteer.categories','name')
+                // ->label('اللجنة')
+                // ->placeholder('اختر اللجنة')
+                // ->preload()
+                // ->multiple(),
             ])
             ->actions([
                 // Tables\Actions\EditAction::make(),
@@ -93,7 +93,7 @@ class ContributionResource extends Resource
         return [
             'index' => Pages\ListContributions::route('/'),
             'create' => Pages\CreateContribution::route('/create'),
-            'edit' => Pages\EditContribution::route('/{record}/edit'),
+            // 'edit' => Pages\EditContribution::route('/{record}/edit'),
         ];
     }
 }
