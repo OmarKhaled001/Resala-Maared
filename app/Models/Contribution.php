@@ -23,4 +23,6 @@ class Contribution extends Model
         return $this->belongsTo(Volunteer::class); 
         
     }
+
+    public $timestamps = false;
 }
