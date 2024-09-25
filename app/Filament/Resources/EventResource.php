@@ -28,6 +28,7 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TimePicker;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Tables\Actions\ReplicateAction;
 use Filament\Tables\Columns\Summarizers\Count;
 use App\Filament\Resources\EventResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -297,7 +298,7 @@ class EventResource extends Resource
                 ->label('التاريخ'),
                
                 TextColumn::make('volunteers.name')
-                
+                ->searchable()
                 ->label('الاسم')
        
                 ->listWithLineBreaks()
@@ -312,6 +313,7 @@ class EventResource extends Resource
 
                 TextColumn::make('type')
                 ->sortable()
+                ->searchable()
                 ->label('المشاركة'),
 
                 TextColumn::make('volunteers_count')
@@ -362,7 +364,7 @@ class EventResource extends Resource
                 Tables\Actions\ViewAction::make()->label(false),
                 Tables\Actions\DeleteAction::make()->label(false),
                 Tables\Actions\EditAction::make()->label(false),
-
+                ReplicateAction::make()->label(false),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
