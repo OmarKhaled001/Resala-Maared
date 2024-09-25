@@ -295,6 +295,7 @@ class EventResource extends Resource
             ->columns([
                 TextColumn::make('date')
                 ->sortable()
+                
                 ->label('التاريخ'),
                
                 TextColumn::make('volunteers.name')
@@ -364,7 +365,18 @@ class EventResource extends Resource
                 Tables\Actions\ViewAction::make()->label(false),
                 Tables\Actions\DeleteAction::make()->label(false),
                 Tables\Actions\EditAction::make()->label(false),
-                ReplicateAction::make()->label(false),
+                ReplicateAction::make()->label(false)
+                ->beforeReplicaSaved(function (Event $replica, Event $original) {
+                    // Copy relationships manually here, if needed
+                    $replica->volunteers()->sync($original->volunteers->pluck('id'));
+
+                    // If there are other relationships, replicate them as well
+                    // Example for media files or other relations
+                    // foreach ($original->getMedia('event_screns') as $media) {
+                    //     $replica->addMedia($media->getPath())
+                    //             ->toMediaCollection('event_screns');
+                    // }
+                }),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
