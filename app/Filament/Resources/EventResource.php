@@ -376,7 +376,8 @@ class EventResource extends Resource
                     //     $replica->addMedia($media->getPath())
                     //             ->toMediaCollection('event_screns');
                     // }
-                }),
+                })
+                ->excludeAttributes(['volunteers_count']),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
