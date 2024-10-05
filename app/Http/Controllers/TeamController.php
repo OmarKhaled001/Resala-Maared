@@ -178,7 +178,7 @@ class TeamController extends Controller
 
         $volunteers = Volunteer::with(['contributions' => function ($query) use ($currentYear, $currentMonth) {
             $query->where('year', $currentYear)->where('month', $currentMonth);
-        }])->whereMonth('voldate',$currentMonth)->get();
+        }])->whereYear('voldate',$currentYear)->whereMonth('voldate',$currentMonth)->get();
        
         foreach( $volunteers as $volunteer){
             $events = $volunteer->events;
