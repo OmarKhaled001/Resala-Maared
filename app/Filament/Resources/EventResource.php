@@ -311,7 +311,7 @@ class EventResource extends Resource
                 ->listWithLineBreaks()
                 ->limitList(3)
                 ->expandableLimitedList(),
-                TextColumn::make('volunteers.voldate')
+                TextColumn::make('volunteers.age')
                 ->label('تاريخ التطوع')
                 ->toggleable(isToggledHiddenByDefault: true)
                 ->listWithLineBreaks()
