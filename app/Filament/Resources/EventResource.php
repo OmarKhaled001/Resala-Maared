@@ -325,6 +325,7 @@ class EventResource extends Resource
                 TextColumn::make('notes')
                 ->sortable()
                 ->searchable()
+                ->toggleable(isToggledHiddenByDefault: true)
                 ->label('ملاحظات'),
 
                 TextColumn::make('volunteers_count')
