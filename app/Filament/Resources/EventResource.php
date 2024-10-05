@@ -312,7 +312,7 @@ class EventResource extends Resource
                 ->limitList(3)
                 ->expandableLimitedList(),
                 TextColumn::make('volunteers.age')
-                ->label('تاريخ التطوع')
+                ->label('السن')
                 ->toggleable(isToggledHiddenByDefault: true)
                 ->listWithLineBreaks()
                 ->limitList(3)
@@ -322,6 +322,10 @@ class EventResource extends Resource
                 ->sortable()
                 ->searchable()
                 ->label('المشاركة'),
+                TextColumn::make('notes')
+                ->sortable()
+                ->searchable()
+                ->label('ملاحظات'),
 
                 TextColumn::make('volunteers_count')
                 ->sortable()
