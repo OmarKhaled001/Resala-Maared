@@ -116,6 +116,11 @@
                                 </li>
                             
                                
+                                <li class="nav-item">
+                                    <a class="nav-link menu-link {{Request::url() == route('team.birthdate')? 'active': ''}}" href="{{route("team.birthdate")}}">اعياد الملاد</a>
+                                </li>
+                            
+                               
                             </ul>
                         </div>
                     </li>

@@ -244,4 +244,15 @@ class TeamController extends Controller
         ]);
 
     }
+    public function birthdate(){
+
+        $currentMonth = now()->month;
+
+        $volunteers = Volunteer::whereMonth('birthdate',$currentMonth)->get();
+       
+        return view('vol.birthdate',[
+            'volunteers' => $volunteers,
+      
+        ]);
+    }
 }

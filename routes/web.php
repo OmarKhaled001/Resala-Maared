@@ -43,6 +43,7 @@ Route::group(['middleware' => ['admin','auth']],function () {
     Route::get('master/vol/masaol' ,[TeamController::class,'MasaolTeam'])->name('team.masaol');
     Route::get('master/vol/mmasaol' ,[TeamController::class,'MmasaolTeam'])->name('team.mmasaol');
     Route::get('master/vol/new' ,[TeamController::class,'new'])->name('team.new');
+    Route::get('master/vol/birthdate' ,[TeamController::class,'birthdate'])->name('team.birthdate');
 });
 
 
