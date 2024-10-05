@@ -47,7 +47,7 @@
                                                 <td>{{$volunteer->id}}</td>
                                                 <td>{{$volunteer->name}}</td>
                                                 <td>{{$volunteer->phone}}</td>
-                                                <td>{{$volunteer->voldate->format('Y m d')}}</td>
+                                                <td>{{$volunteer->voldate->format('Y-m-d')}}</td>
                                                 <td>{{$volunteer->birthdate}}</td>
                                                 <td>{{$volunteer->age ?? 'غير موجود'}}</td>
                                                 
