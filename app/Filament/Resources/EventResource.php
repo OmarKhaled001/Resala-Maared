@@ -335,7 +335,7 @@ class EventResource extends Resource
                 ->query(fn (Builder $query) => 
                     $query->whereMonth('date', Carbon::now()->month)
                           ->whereYear('date', Carbon::now()->year)
-                ),
+                )->default(true),
 
                 
             ])
